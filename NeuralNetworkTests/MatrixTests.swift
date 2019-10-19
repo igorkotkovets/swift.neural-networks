@@ -53,9 +53,23 @@ class MatrixTests: XCTestCase {
         let secondArray = [5.0, 6.0, 7.0, 8.0]
         let second = Matrix(rows: 2, columns: 2, array: secondArray)
 
-        let result = first*second
+        let result = try! first*second
         XCTAssertEqual(19, result[0,0])
         XCTAssertEqual(22, result[0,1])
+        XCTAssertEqual(43, result[1,0])
+        XCTAssertEqual(50, result[1,1])
+    }
+
+    func testThatMultiplyMatrixAndVertor() {
+        let firstArray = [1.0, 2.0, 3.0, 4.0]
+        let matrix = Matrix(rows: 2, columns: 2, array: firstArray)
+
+        let vectorArray = [5.0, 6.0];
+        let vector = Matrix(rows: 2, columns: 1, array: vectorArray)
+
+        let result = try! matrix*vector
+        XCTAssertEqual(17, result[0,0])
+        XCTAssertEqual(39, result[0,1])
     }
 
     func testThatTransformMatrix() {

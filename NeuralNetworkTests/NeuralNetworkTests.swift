@@ -18,9 +18,10 @@ class NeuralNetworkTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testThatNeuralNetworkWorks() {
+        let network = NeuralNetwork(inputNodes: 3, hiddenNodes: 3, outputNodes: 3, learningRate: 0.3)
+        let matrix = try! network.query(inputs: [1.0, 0.5, -1.5])
+        print("\(matrix)")
     }
 
     func testPerformanceExample() {

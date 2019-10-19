@@ -8,7 +8,13 @@
 
 import Foundation
 
+
+
 struct Matrix<Element> {
+    enum Error: Swift.Error {
+        case matrixesAreNotConsistent
+    }
+
     let rows: Int
     let columns: Int
     var array: [Element]
@@ -88,15 +94,19 @@ extension Matrix where Element == Double {
         return Matrix<Element>(rows: rows, columns: columns, array: mult)
     }
 
-    static func * (lhs: Matrix<Double>, rhs: Matrix<Double>) -> Matrix<Double> {
-        var result = Matrix(rows: lhs.rows, columns: lhs.columns, defaultValue: 0)
-        for i in 0..<lhs.rows {
+    static func * (lhs: Matrix<Double>, rhs: Matrix<Double>) throws -> Matrix<Double> {
+        guard lhs.columns == rhs.rows else {
+            throw Matrix.Error.matrixesAreNotConsistent
+        }
+
+        var result = Matrix(rows: lhs.rows, columns: rhs.columns, defaultValue: 0)
+        for i in 0..<rhs.columns {
             for j in 0..<lhs.columns {
                 var value = 0.0
-                for t in 0..<lhs.columns {
-                    value += lhs[i,t]*rhs[t,j]
+                for t in 0..<rhs.rows {
+                    value += lhs[j,t]*rhs[t,i]
                 }
-                result[i,j] = value
+                result[j,i] = value
             }
         }
         return result

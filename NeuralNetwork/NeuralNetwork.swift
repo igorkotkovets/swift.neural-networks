@@ -29,10 +29,13 @@ class NeuralNetwork {
 
     }
 
-    func query(inputs: Matrix<Double>) {
-        let hiddenInputs = self.wih*inputs
+    func query(inputs array: [Double]) throws -> Matrix<Double>{
+        let inputsMatrix = Matrix(rows: array.count, columns: 1, array: array)
+        let hiddenInputs = try self.wih*inputsMatrix
         let hiddenOutputs = sigmoid(hiddenInputs)
-        let finalInputs = self.who*hiddenOutputs
+        let finalInputs = try self.who*hiddenOutputs
         let finalOutputs = sigmoid(finalInputs)
+        return finalOutputs
+
     }
 }
