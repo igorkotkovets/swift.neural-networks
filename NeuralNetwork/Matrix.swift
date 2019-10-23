@@ -34,6 +34,20 @@ struct Matrix<Element> {
         self.array = array
     }
 
+    init(rows: Int, columns: Int, elements: Element...) {
+        self.rows = rows
+        self.columns = columns
+        self.array = elements
+    }
+
+    static func column(elements: [Element]) -> Matrix {
+        return Matrix(rows: elements.count, columns: 1, array: elements)
+    }
+
+    static func column(elements: Element...) -> Matrix {
+        return Matrix(rows: elements.count, columns: 1, array: elements)
+    }
+
     subscript(row: Int, column: Int) -> Element {
         get {
             return array[row*columns+column]
@@ -43,7 +57,7 @@ struct Matrix<Element> {
         }
     }
 
-    func transformed() -> Matrix<Element> {
+    var T: Matrix<Element> {
         return Matrix(rows: columns, columns: rows, array: array)
     }
 }
@@ -80,9 +94,22 @@ extension Matrix where Element == Double {
         self.rows = rows
         self.columns = columns
         let count = rows*columns
-        self.array = Array<Element>(_unsafeUninitializedCapacity: count) { buffer, initializedCount in
+        self.array = Array<Element>(unsafeUninitializedCapacity: count) { buffer, initializedCount in
             for x in 0..<count {
                 buffer[x] = Double.random(in: random.0...random.1)
+            }
+
+            initializedCount = count
+        }
+    }
+
+    init(rows: Int, columns: Int, valuesInRange: ClosedRange<Double>) {
+        self.rows = rows
+        self.columns = columns
+        let count = rows*columns
+        self.array = Array<Element>(unsafeUninitializedCapacity: count) { buffer, initializedCount in
+            for x in 0..<count {
+                buffer[x] = Double.random(in: valuesInRange)
             }
 
             initializedCount = count
@@ -94,7 +121,8 @@ extension Matrix where Element == Double {
         return Matrix<Element>(rows: rows, columns: columns, array: mult)
     }
 
-    static func * (lhs: Matrix<Double>, rhs: Matrix<Double>) throws -> Matrix<Double> {
+    func dot (_ rhs: Matrix<Double>) throws -> Matrix<Double> {
+        let lhs = self
         guard lhs.columns == rhs.rows else {
             throw Matrix.Error.matrixesAreNotConsistent
         }
@@ -111,11 +139,22 @@ extension Matrix where Element == Double {
         }
         return result
     }
+
+    func apply(_ function: ((Matrix) -> Matrix)) -> Matrix {
+        return function(self)
+    }
+
+
 }
 
 prefix func - (matrix: Matrix<Double>) -> Matrix<Double> {
     let sub = matrix.array.map { -$0 }
     return Matrix(rows: matrix.rows, columns: matrix.columns, array: sub)
+}
+
+func - (lhs: Matrix<Double>, rhs: Matrix<Double>) -> Matrix<Double> {
+    let resArray = zip(lhs, rhs).map{ $0-$1 }
+    return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
 }
 
 func + (lhs: Double, rhs: Matrix<Double>) -> Matrix<Double> {
@@ -131,6 +170,26 @@ func / (lhs: Double, rhs: Matrix<Double>) -> Matrix<Double> {
 func * (lhs: Double, rhs: Matrix<Double>) -> Matrix<Double> {
     let result = rhs.array.map { lhs * $0 }
     return Matrix(rows: rhs.rows, columns: rhs.columns, array: result)
+}
+
+func - (lhs: Double, rhs: Matrix<Double>) -> Matrix<Double> {
+    let result = rhs.array.map { lhs - $0 }
+    return Matrix(rows: rhs.rows, columns: rhs.columns, array: result)
+}
+
+func * (lhs: Matrix<Double>, rhs: Matrix<Double>) -> Matrix<Double> {
+    let resArray = zip(lhs, rhs).map{ $0*$1 }
+    return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
+}
+
+func += (lhs: Matrix<Double>, rhs: Matrix<Double>) -> Matrix<Double> {
+    let resArray = zip(lhs, rhs).map{ $0+$1 }
+    return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
+}
+
+func + (lhs: Matrix<Double>, rhs: Matrix<Double>) -> Matrix<Double> {
+    let resArray = zip(lhs, rhs).map{ $0+$1 }
+    return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
 }
 
 func sigmoid(_ z: Matrix<Double>) -> Matrix<Double> {

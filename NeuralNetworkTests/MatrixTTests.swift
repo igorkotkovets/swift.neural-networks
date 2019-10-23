@@ -1,15 +1,14 @@
 //
-//  NeuralNetworkTests.swift
+//  MatrixTTests.swift
 //  NeuralNetworkTests
 //
-//  Created by Igor Kotkovets on 10/20/19.
+//  Created by Igor Kotkovets on 10/19/19.
 //  Copyright © 2019 Igor Kotkovets. All rights reserved.
 //
 
 import XCTest
-@testable import NeuralNetwork
 
-class NeuralNetworkTests: XCTestCase {
+class MatrixTTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,5 +29,11 @@ class NeuralNetworkTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+
+//    func testCreation() {
+//        let matrix: MatrixT = [[0]]
+//        let firstRow:[Int] = matrix[0]
+//        let colunsCount = firstRow.count
+//    }
 
 }

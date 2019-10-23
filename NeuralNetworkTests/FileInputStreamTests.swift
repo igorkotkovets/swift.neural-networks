@@ -1,5 +1,5 @@
 //
-//  NeuralNetworkTests.swift
+//  FileInputStreamTests.swift
 //  NeuralNetworkTests
 //
 //  Created by Igor Kotkovets on 10/20/19.
@@ -7,12 +7,12 @@
 //
 
 import XCTest
-@testable import NeuralNetwork
 
-class NeuralNetworkTests: XCTestCase {
+class FileInputStreamTests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let pathToTrainCSV = Bundle.main.path(forResource: "mnist_train_100", ofType: "csv")
+        print(pathToTrainCSV)
     }
 
     override func tearDown() {

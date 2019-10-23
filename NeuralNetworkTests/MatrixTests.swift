@@ -53,7 +53,7 @@ class MatrixTests: XCTestCase {
         let secondArray = [5.0, 6.0, 7.0, 8.0]
         let second = Matrix(rows: 2, columns: 2, array: secondArray)
 
-        let result = try! first*second
+        let result = try! first.dot(second)
         XCTAssertEqual(19, result[0,0])
         XCTAssertEqual(22, result[0,1])
         XCTAssertEqual(43, result[1,0])
@@ -67,7 +67,7 @@ class MatrixTests: XCTestCase {
         let vectorArray = [5.0, 6.0];
         let vector = Matrix(rows: 2, columns: 1, array: vectorArray)
 
-        let result = try! matrix*vector
+        let result = try! matrix.dot(vector)
         XCTAssertEqual(17, result[0,0])
         XCTAssertEqual(39, result[0,1])
     }
@@ -75,17 +75,29 @@ class MatrixTests: XCTestCase {
     func testThatTransformMatrix() {
         let array = [1.0, 2.0, 3.0, 4.0]
         let matrix = Matrix(rows: 1, columns: 4, array: array)
-        let transformed = matrix.transformed()
+        let transformed = matrix.T
         XCTAssertEqual(1.0, transformed[0,0])
         XCTAssertEqual(2.0, transformed[1,0])
         XCTAssertEqual(3.0, transformed[2,0])
         XCTAssertEqual(4.0, transformed[3,0])
     }
 
+    func testMatrixSubstraction() {
+        let firstMatrix = Matrix(rows: 2, columns: 2, elements: 1.0, 1.0, 1.0, 1.0)
+        let secondMatrix = Matrix(rows: 2, columns: 2, elements: 0.1, 0.2, 0.3, 0.4)
+        let sub = firstMatrix - secondMatrix
+        XCTAssertEqual(0.9, sub[0,0])
+        XCTAssertEqual(0.8, sub[0,1])
+        XCTAssertEqual(0.7, sub[1,0])
+        XCTAssertEqual(0.6, sub[1,1])
+    }
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            let W = Matrix(rows: 1000,columns: 1000, valuesInRange: 0.1...0.9)
+            let I = Matrix(rows: 1000, columns: 1000, valuesInRange: 0.1...0.9)
+            let O = try? W.dot(I)
         }
     }
 
