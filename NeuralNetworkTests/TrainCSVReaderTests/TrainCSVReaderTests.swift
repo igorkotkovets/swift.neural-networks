@@ -65,4 +65,19 @@ class TrainCSVReaderTests: XCTestCase {
         } while strLine != nil
         XCTAssertEqual(count, 100)
     }
+
+    func testRead3EmptyLines() {
+        let filePath = bundle.path(forResource: "3EmptyLines", ofType: "cvs")
+        XCTAssertNotNil(filePath)
+        let reader = try? FileStream(filePath: filePath!)
+        XCTAssertNotNil(reader)
+        var strLine = reader?.readLine()
+        XCTAssertEqual(strLine, "\n")
+        strLine = reader?.readLine()
+        XCTAssertEqual(strLine, "\n")
+        strLine = reader?.readLine()
+        XCTAssertEqual(strLine, "\n")
+        strLine = reader?.readLine()
+        XCTAssertNil(strLine)
+    }
 }

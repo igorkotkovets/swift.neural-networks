@@ -28,6 +28,7 @@
 		D8CD4E1B2361C0CB001215C7 /* FileStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CD4E192361C0A0001215C7 /* FileStream.swift */; };
 		D8CD4E662362EF8C001215C7 /* mnist_train_100.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */; };
 		D8CD4E672362EF91001215C7 /* mnist_train_100.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */; };
+		D8CD4E76236322F4001215C7 /* 3EmptyLines.cvs in Resources */ = {isa = PBXBuildFile; fileRef = D8CD4E75236322F4001215C7 /* 3EmptyLines.cvs */; };
 		D8E230B023602F1700336917 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E230AF23602F1700336917 /* MainViewModel.swift */; };
 		D8E230B42360301F00336917 /* TrainCSVReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E230B32360301F00336917 /* TrainCSVReaderTests.swift */; };
 		D8E230B72360333700336917 /* EmptyFile.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8E230B62360333700336917 /* EmptyFile.csv */; };
@@ -75,6 +76,7 @@
 		D8BFB608235CEA8600D172E2 /* ServicesPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPool.swift; sourceTree = "<group>"; };
 		D8CD4E192361C0A0001215C7 /* FileStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStream.swift; sourceTree = "<group>"; };
 		D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_train_100.csv; sourceTree = "<group>"; };
+		D8CD4E75236322F4001215C7 /* 3EmptyLines.cvs */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3EmptyLines.cvs; sourceTree = "<group>"; };
 		D8E230AF23602F1700336917 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		D8E230B32360301F00336917 /* TrainCSVReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainCSVReaderTests.swift; sourceTree = "<group>"; };
 		D8E230B62360333700336917 /* EmptyFile.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = EmptyFile.csv; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				D8E230B32360301F00336917 /* TrainCSVReaderTests.swift */,
 				D8E230B62360333700336917 /* EmptyFile.csv */,
 				D8E230B92360495D00336917 /* 3Lines.csv */,
+				D8CD4E75236322F4001215C7 /* 3EmptyLines.cvs */,
 			);
 			path = TrainCSVReaderTests;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			files = (
 				D8CD4E672362EF91001215C7 /* mnist_train_100.csv in Resources */,
 				D8E230BA2360495D00336917 /* 3Lines.csv in Resources */,
+				D8CD4E76236322F4001215C7 /* 3EmptyLines.cvs in Resources */,
 				D8E230B72360333700336917 /* EmptyFile.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

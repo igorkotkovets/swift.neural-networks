@@ -70,3 +70,4 @@ class FileStream: FileStreamInput {
         return result
     }
 }
+
