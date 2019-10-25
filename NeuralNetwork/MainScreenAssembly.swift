@@ -13,7 +13,8 @@ class MainScreenAssembly: Assembly {
     func assemble(container: Container) {
         container.register(MainViewInput.self) { resolver in
 //            let windowController = MainWindowController()
-            let viewController = MainViewController()
+            let servicesPool = resolver.resolve(ServicesPoolInput.self)
+            let viewController = MainViewController(servicesPool: servicesPool)
 //            windowController.contentViewController = viewController
             return viewController
         }

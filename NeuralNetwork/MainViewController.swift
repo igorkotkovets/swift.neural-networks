@@ -15,6 +15,19 @@ protocol MainViewInput {
 class MainViewController: NSViewController, MainViewInput {
     var servicesPool: ServicesPoolInput?
 
+    convenience init(servicesPool: ServicesPoolInput?) {
+        self.init(nibName: "MainViewController", bundle: nil)
+        self.servicesPool = servicesPool
+    }
+
+    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     func viewController() -> NSViewController {
         return self
     }

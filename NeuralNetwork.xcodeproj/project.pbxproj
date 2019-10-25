@@ -17,7 +17,6 @@
 		D8BFB5DD235CBE8B00D172E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5DC235CBE8B00D172E2 /* AppDelegate.swift */; };
 		D8BFB5E1235CBE8B00D172E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BFB5E0235CBE8B00D172E2 /* Assets.xcassets */; };
 		D8BFB5F0235CBE8C00D172E2 /* NeuralNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5EF235CBE8C00D172E2 /* NeuralNetworkTests.swift */; };
-		D8BFB600235CC12D00D172E2 /* FileInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FA235CC12C00D172E2 /* FileInputStream.swift */; };
 		D8BFB601235CC12D00D172E2 /* MatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */; };
 		D8BFB602235CC12D00D172E2 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FC235CC12C00D172E2 /* Matrix.swift */; };
 		D8BFB603235CC12D00D172E2 /* MatrixExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FD235CC12C00D172E2 /* MatrixExtensions.swift */; };
@@ -25,6 +24,14 @@
 		D8BFB605235CC12D00D172E2 /* NeuralNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FF235CC12D00D172E2 /* NeuralNetwork.swift */; };
 		D8BFB607235CCB9500D172E2 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB606235CCB9500D172E2 /* CoreAssembly.swift */; };
 		D8BFB609235CEA8600D172E2 /* ServicesPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB608235CEA8600D172E2 /* ServicesPool.swift */; };
+		D8CD4E1A2361C0A0001215C7 /* FileStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CD4E192361C0A0001215C7 /* FileStream.swift */; };
+		D8CD4E1B2361C0CB001215C7 /* FileStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CD4E192361C0A0001215C7 /* FileStream.swift */; };
+		D8CD4E662362EF8C001215C7 /* mnist_train_100.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */; };
+		D8CD4E672362EF91001215C7 /* mnist_train_100.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */; };
+		D8E230B023602F1700336917 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E230AF23602F1700336917 /* MainViewModel.swift */; };
+		D8E230B42360301F00336917 /* TrainCSVReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E230B32360301F00336917 /* TrainCSVReaderTests.swift */; };
+		D8E230B72360333700336917 /* EmptyFile.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8E230B62360333700336917 /* EmptyFile.csv */; };
+		D8E230BA2360495D00336917 /* 3Lines.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8E230B92360495D00336917 /* 3Lines.csv */; };
 		EE420AD1B8045EAFC67B7916 /* Pods_NeuralNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D178F083B37E6A23CD4E21E0 /* Pods_NeuralNetwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +66,6 @@
 		D8BFB5EB235CBE8C00D172E2 /* NeuralNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuralNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BFB5EF235CBE8C00D172E2 /* NeuralNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNetworkTests.swift; sourceTree = "<group>"; };
 		D8BFB5F1235CBE8C00D172E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8BFB5FA235CC12C00D172E2 /* FileInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInputStream.swift; sourceTree = "<group>"; };
 		D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixGenerator.swift; sourceTree = "<group>"; };
 		D8BFB5FC235CC12C00D172E2 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		D8BFB5FD235CC12C00D172E2 /* MatrixExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixExtensions.swift; sourceTree = "<group>"; };
@@ -67,6 +73,12 @@
 		D8BFB5FF235CC12D00D172E2 /* NeuralNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuralNetwork.swift; sourceTree = "<group>"; };
 		D8BFB606235CCB9500D172E2 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		D8BFB608235CEA8600D172E2 /* ServicesPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPool.swift; sourceTree = "<group>"; };
+		D8CD4E192361C0A0001215C7 /* FileStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStream.swift; sourceTree = "<group>"; };
+		D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_train_100.csv; sourceTree = "<group>"; };
+		D8E230AF23602F1700336917 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		D8E230B32360301F00336917 /* TrainCSVReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainCSVReaderTests.swift; sourceTree = "<group>"; };
+		D8E230B62360333700336917 /* EmptyFile.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = EmptyFile.csv; sourceTree = "<group>"; };
+		D8E230B92360495D00336917 /* 3Lines.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3Lines.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +124,7 @@
 		D8BFB5D0235CBE8A00D172E2 = {
 			isa = PBXGroup;
 			children = (
+				D8CD4E642362EF8C001215C7 /* DataSet */,
 				D8BFB5DB235CBE8B00D172E2 /* NeuralNetwork */,
 				D8BFB5EE235CBE8C00D172E2 /* NeuralNetworkTests */,
 				D8BFB5DA235CBE8B00D172E2 /* Products */,
@@ -134,18 +147,19 @@
 			children = (
 				D8BFB5DC235CBE8B00D172E2 /* AppDelegate.swift */,
 				D8BFB608235CEA8600D172E2 /* ServicesPool.swift */,
-				D8BFB5FA235CC12C00D172E2 /* FileInputStream.swift */,
 				D8BFB606235CCB9500D172E2 /* CoreAssembly.swift */,
 				D819626F235F67A900D78B3F /* MainWindowController.swift */,
 				D8196270235F67A900D78B3F /* MainWindowController.xib */,
 				D8196275235F6D1000D78B3F /* MainViewController.swift */,
 				D8196276235F6D1000D78B3F /* MainViewController.xib */,
 				D8196273235F683D00D78B3F /* MainScreenAssembly.swift */,
+				D8E230AF23602F1700336917 /* MainViewModel.swift */,
 				D8BFB5FC235CC12C00D172E2 /* Matrix.swift */,
 				D8BFB5FD235CC12C00D172E2 /* MatrixExtensions.swift */,
 				D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */,
 				D81962A1235F755800D78B3F /* MainMenu.xib */,
 				D8BFB5FE235CC12D00D172E2 /* MatrixT.swift */,
+				D8CD4E192361C0A0001215C7 /* FileStream.swift */,
 				D8BFB5FF235CC12D00D172E2 /* NeuralNetwork.swift */,
 				D8BFB5E0235CBE8B00D172E2 /* Assets.xcassets */,
 				D8BFB5E5235CBE8B00D172E2 /* Info.plist */,
@@ -158,9 +172,28 @@
 			isa = PBXGroup;
 			children = (
 				D8BFB5EF235CBE8C00D172E2 /* NeuralNetworkTests.swift */,
+				D8E230B5236032F800336917 /* TrainCSVReaderTests */,
 				D8BFB5F1235CBE8C00D172E2 /* Info.plist */,
 			);
 			path = NeuralNetworkTests;
+			sourceTree = "<group>";
+		};
+		D8CD4E642362EF8C001215C7 /* DataSet */ = {
+			isa = PBXGroup;
+			children = (
+				D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */,
+			);
+			path = DataSet;
+			sourceTree = "<group>";
+		};
+		D8E230B5236032F800336917 /* TrainCSVReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				D8E230B32360301F00336917 /* TrainCSVReaderTests.swift */,
+				D8E230B62360333700336917 /* EmptyFile.csv */,
+				D8E230B92360495D00336917 /* 3Lines.csv */,
+			);
+			path = TrainCSVReaderTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8196272235F67A900D78B3F /* MainWindowController.xib in Resources */,
+				D8CD4E662362EF8C001215C7 /* mnist_train_100.csv in Resources */,
 				D8196278235F6D1000D78B3F /* MainViewController.xib in Resources */,
 				D8BFB5E1235CBE8B00D172E2 /* Assets.xcassets in Resources */,
 				D81962A3235F755800D78B3F /* MainMenu.xib in Resources */,
@@ -258,6 +292,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8CD4E672362EF91001215C7 /* mnist_train_100.csv in Resources */,
+				D8E230BA2360495D00336917 /* 3Lines.csv in Resources */,
+				D8E230B72360333700336917 /* EmptyFile.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,13 +371,14 @@
 			files = (
 				D8BFB601235CC12D00D172E2 /* MatrixGenerator.swift in Sources */,
 				D8BFB609235CEA8600D172E2 /* ServicesPool.swift in Sources */,
+				D8CD4E1A2361C0A0001215C7 /* FileStream.swift in Sources */,
 				D8196274235F683D00D78B3F /* MainScreenAssembly.swift in Sources */,
 				D8196277235F6D1000D78B3F /* MainViewController.swift in Sources */,
 				D8BFB604235CC12D00D172E2 /* MatrixT.swift in Sources */,
+				D8E230B023602F1700336917 /* MainViewModel.swift in Sources */,
 				D8BFB602235CC12D00D172E2 /* Matrix.swift in Sources */,
 				D8196271235F67A900D78B3F /* MainWindowController.swift in Sources */,
 				D8BFB607235CCB9500D172E2 /* CoreAssembly.swift in Sources */,
-				D8BFB600235CC12D00D172E2 /* FileInputStream.swift in Sources */,
 				D8BFB603235CC12D00D172E2 /* MatrixExtensions.swift in Sources */,
 				D8BFB5DD235CBE8B00D172E2 /* AppDelegate.swift in Sources */,
 				D8BFB605235CC12D00D172E2 /* NeuralNetwork.swift in Sources */,
@@ -351,6 +389,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E230B42360301F00336917 /* TrainCSVReaderTests.swift in Sources */,
+				D8CD4E1B2361C0CB001215C7 /* FileStream.swift in Sources */,
 				D8BFB5F0235CBE8C00D172E2 /* NeuralNetworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

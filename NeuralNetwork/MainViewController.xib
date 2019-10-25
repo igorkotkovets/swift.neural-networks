@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,16 +18,19 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-jE-Ypn">
-                    <rect key="frame" x="185" y="147" width="81" height="32"/>
-                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ovc-B1-WbY">
+                    <rect key="frame" x="14" y="224" width="168" height="32"/>
+                    <buttonCell key="cell" type="push" title="Train Neural Network" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ovc-B1-WbY">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="trainDidTap:" target="-2" id="7fG-CI-JRD"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="97" id="0Pu-xF-R9R"/>
-                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="191" id="zgh-Eq-js4"/>
+                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="IZA-dT-4zV"/>
+                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="wFu-Pv-IIK"/>
             </constraints>
             <point key="canvasLocation" x="140" y="154"/>
         </customView>
