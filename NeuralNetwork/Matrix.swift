@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct Matrix<Element> {
     enum Error: Swift.Error {
         case matrixesAreNotConsistent

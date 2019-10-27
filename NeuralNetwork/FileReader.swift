@@ -8,18 +8,23 @@
 
 import Foundation
 
-protocol FileStreamInput {
+protocol FileReaderInput {
     func readLine() -> String?
+    func readLine(strippingNewline: Bool) -> String?
+
 }
 
-class FileStream: FileStreamInput {
+class FileReader: FileReaderInput {
+
+
     enum Error: Swift.Error {
         case unableToOpenFile
     }
 
     let fileHandle: FileHandle
     var eofReached: Bool = false
-    let newLineCharacter = 10
+    lazy var newLineCharacterASCII = 10
+    lazy var newLineStr = String(UnicodeScalar(10))
     let bufferSize: Int
     var buffer = Data()
     let encoding = String.Encoding.utf8
@@ -32,7 +37,19 @@ class FileStream: FileStreamInput {
         self.bufferSize = bufferSize
     }
 
+    init?(fileURL: URL, bufferSize: Int = 1024) throws {
+        guard let fileHandle = try? FileHandle(forReadingFrom: fileURL) else {
+            throw Error.unableToOpenFile
+        }
+        self.fileHandle = fileHandle
+        self.bufferSize = bufferSize
+    }
+
     func readLine() -> String? {
+        return readLine(strippingNewline: true)
+    }
+
+    func readLine(strippingNewline: Bool = true) -> String? {
         var result: String? = nil
         var newLinePosition = -1
 
@@ -66,6 +83,11 @@ class FileStream: FileStreamInput {
                 result?.append(str!)
             }
         } while self.eofReached == false && newLinePosition < 0
+
+
+        if strippingNewline && result?.hasSuffix(newLineStr) == true {
+            result?.removeLast()
+        }
 
         return result
     }

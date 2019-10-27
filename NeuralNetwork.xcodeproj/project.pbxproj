@@ -14,18 +14,29 @@
 		D8196277235F6D1000D78B3F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8196275235F6D1000D78B3F /* MainViewController.swift */; };
 		D8196278235F6D1000D78B3F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8196276235F6D1000D78B3F /* MainViewController.xib */; };
 		D81962A3235F755800D78B3F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81962A1235F755800D78B3F /* MainMenu.xib */; };
+		D85007912364B0EE0052A514 /* BitmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85007902364B0EE0052A514 /* BitmapView.swift */; };
+		D85007932364D5AC0052A514 /* BitmapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85007922364D5AC0052A514 /* BitmapViewModel.swift */; };
+		D85007952364D5E10052A514 /* BitmapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85007942364D5E10052A514 /* BitmapView.xib */; };
+		D860225E23657E68003D0AAE /* NSNib+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860225D23657E68003D0AAE /* NSNib+Extensions.swift */; };
+		D860226223658E53003D0AAE /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860226123658E53003D0AAE /* FileReader.swift */; };
+		D860226323658F17003D0AAE /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860226123658E53003D0AAE /* FileReader.swift */; };
+		D8602266236610CF003D0AAE /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8602265236610CF003D0AAE /* MatrixTests.swift */; };
+		D8A291E1236429BC00ABA223 /* BitmapMetadataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130E123638E6B007E421D /* BitmapMetadataParser.swift */; };
+		D8A291E423642A5D00ABA223 /* BitmapMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130DF23636F7C007E421D /* BitmapMetadata.swift */; };
+		D8A291E723642DC900ABA223 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FC235CC12C00D172E2 /* Matrix.swift */; };
+		D8A291E92364398C00ABA223 /* MatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */; };
 		D8BFB5DD235CBE8B00D172E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5DC235CBE8B00D172E2 /* AppDelegate.swift */; };
 		D8BFB5E1235CBE8B00D172E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BFB5E0235CBE8B00D172E2 /* Assets.xcassets */; };
 		D8BFB5F0235CBE8C00D172E2 /* NeuralNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5EF235CBE8C00D172E2 /* NeuralNetworkTests.swift */; };
 		D8BFB601235CC12D00D172E2 /* MatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */; };
 		D8BFB602235CC12D00D172E2 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FC235CC12C00D172E2 /* Matrix.swift */; };
 		D8BFB603235CC12D00D172E2 /* MatrixExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FD235CC12C00D172E2 /* MatrixExtensions.swift */; };
-		D8BFB604235CC12D00D172E2 /* MatrixT.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FE235CC12D00D172E2 /* MatrixT.swift */; };
 		D8BFB605235CC12D00D172E2 /* NeuralNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FF235CC12D00D172E2 /* NeuralNetwork.swift */; };
 		D8BFB607235CCB9500D172E2 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB606235CCB9500D172E2 /* CoreAssembly.swift */; };
 		D8BFB609235CEA8600D172E2 /* ServicesPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB608235CEA8600D172E2 /* ServicesPool.swift */; };
-		D8CD4E1A2361C0A0001215C7 /* FileStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CD4E192361C0A0001215C7 /* FileStream.swift */; };
-		D8CD4E1B2361C0CB001215C7 /* FileStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CD4E192361C0A0001215C7 /* FileStream.swift */; };
+		D8C130E023636F7C007E421D /* BitmapMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130DF23636F7C007E421D /* BitmapMetadata.swift */; };
+		D8C130E223638E6B007E421D /* BitmapMetadataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130E123638E6B007E421D /* BitmapMetadataParser.swift */; };
+		D8C130E523638ECB007E421D /* BitmapMetadataParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130E423638ECB007E421D /* BitmapMetadataParserTests.swift */; };
 		D8CD4E662362EF8C001215C7 /* mnist_train_100.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */; };
 		D8CD4E672362EF91001215C7 /* mnist_train_100.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */; };
 		D8CD4E76236322F4001215C7 /* 3EmptyLines.cvs in Resources */ = {isa = PBXBuildFile; fileRef = D8CD4E75236322F4001215C7 /* 3EmptyLines.cvs */; };
@@ -59,6 +70,12 @@
 		D8196275235F6D1000D78B3F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D8196276235F6D1000D78B3F /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		D81962A2235F755800D78B3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D85007902364B0EE0052A514 /* BitmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapView.swift; sourceTree = "<group>"; };
+		D85007922364D5AC0052A514 /* BitmapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapViewModel.swift; sourceTree = "<group>"; };
+		D85007942364D5E10052A514 /* BitmapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BitmapView.xib; sourceTree = "<group>"; };
+		D860225D23657E68003D0AAE /* NSNib+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNib+Extensions.swift"; sourceTree = "<group>"; };
+		D860226123658E53003D0AAE /* FileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
+		D8602265236610CF003D0AAE /* MatrixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixTests.swift; sourceTree = "<group>"; };
 		D8BFB5D9235CBE8B00D172E2 /* NeuralNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuralNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BFB5DC235CBE8B00D172E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8BFB5E0235CBE8B00D172E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,11 +87,12 @@
 		D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixGenerator.swift; sourceTree = "<group>"; };
 		D8BFB5FC235CC12C00D172E2 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		D8BFB5FD235CC12C00D172E2 /* MatrixExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixExtensions.swift; sourceTree = "<group>"; };
-		D8BFB5FE235CC12D00D172E2 /* MatrixT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixT.swift; sourceTree = "<group>"; };
 		D8BFB5FF235CC12D00D172E2 /* NeuralNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuralNetwork.swift; sourceTree = "<group>"; };
 		D8BFB606235CCB9500D172E2 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		D8BFB608235CEA8600D172E2 /* ServicesPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPool.swift; sourceTree = "<group>"; };
-		D8CD4E192361C0A0001215C7 /* FileStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStream.swift; sourceTree = "<group>"; };
+		D8C130DF23636F7C007E421D /* BitmapMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapMetadata.swift; sourceTree = "<group>"; };
+		D8C130E123638E6B007E421D /* BitmapMetadataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapMetadataParser.swift; sourceTree = "<group>"; };
+		D8C130E423638ECB007E421D /* BitmapMetadataParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapMetadataParserTests.swift; sourceTree = "<group>"; };
 		D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_train_100.csv; sourceTree = "<group>"; };
 		D8CD4E75236322F4001215C7 /* 3EmptyLines.cvs */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3EmptyLines.cvs; sourceTree = "<group>"; };
 		D8E230AF23602F1700336917 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -123,6 +141,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D860225C23657E57003D0AAE /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D860225D23657E68003D0AAE /* NSNib+Extensions.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D8602264236610BA003D0AAE /* MatrixTests */ = {
+			isa = PBXGroup;
+			children = (
+				D8602265236610CF003D0AAE /* MatrixTests.swift */,
+			);
+			path = MatrixTests;
+			sourceTree = "<group>";
+		};
 		D8BFB5D0235CBE8A00D172E2 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				D8BFB5DC235CBE8B00D172E2 /* AppDelegate.swift */,
+				D860225C23657E57003D0AAE /* Core */,
 				D8BFB608235CEA8600D172E2 /* ServicesPool.swift */,
 				D8BFB606235CCB9500D172E2 /* CoreAssembly.swift */,
 				D819626F235F67A900D78B3F /* MainWindowController.swift */,
@@ -160,9 +195,13 @@
 				D8BFB5FD235CC12C00D172E2 /* MatrixExtensions.swift */,
 				D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */,
 				D81962A1235F755800D78B3F /* MainMenu.xib */,
-				D8BFB5FE235CC12D00D172E2 /* MatrixT.swift */,
-				D8CD4E192361C0A0001215C7 /* FileStream.swift */,
+				D8C130DF23636F7C007E421D /* BitmapMetadata.swift */,
+				D860226123658E53003D0AAE /* FileReader.swift */,
+				D8C130E123638E6B007E421D /* BitmapMetadataParser.swift */,
 				D8BFB5FF235CC12D00D172E2 /* NeuralNetwork.swift */,
+				D85007902364B0EE0052A514 /* BitmapView.swift */,
+				D85007942364D5E10052A514 /* BitmapView.xib */,
+				D85007922364D5AC0052A514 /* BitmapViewModel.swift */,
 				D8BFB5E0235CBE8B00D172E2 /* Assets.xcassets */,
 				D8BFB5E5235CBE8B00D172E2 /* Info.plist */,
 				D8BFB5E6235CBE8B00D172E2 /* NeuralNetwork.entitlements */,
@@ -173,11 +212,21 @@
 		D8BFB5EE235CBE8C00D172E2 /* NeuralNetworkTests */ = {
 			isa = PBXGroup;
 			children = (
+				D8602264236610BA003D0AAE /* MatrixTests */,
 				D8BFB5EF235CBE8C00D172E2 /* NeuralNetworkTests.swift */,
+				D8C130E323638EAF007E421D /* BitmapMetadataParserTests */,
 				D8E230B5236032F800336917 /* TrainCSVReaderTests */,
 				D8BFB5F1235CBE8C00D172E2 /* Info.plist */,
 			);
 			path = NeuralNetworkTests;
+			sourceTree = "<group>";
+		};
+		D8C130E323638EAF007E421D /* BitmapMetadataParserTests */ = {
+			isa = PBXGroup;
+			children = (
+				D8C130E423638ECB007E421D /* BitmapMetadataParserTests.swift */,
+			);
+			path = BitmapMetadataParserTests;
 			sourceTree = "<group>";
 		};
 		D8CD4E642362EF8C001215C7 /* DataSet */ = {
@@ -288,6 +337,7 @@
 				D8196278235F6D1000D78B3F /* MainViewController.xib in Resources */,
 				D8BFB5E1235CBE8B00D172E2 /* Assets.xcassets in Resources */,
 				D81962A3235F755800D78B3F /* MainMenu.xib in Resources */,
+				D85007952364D5E10052A514 /* BitmapView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,17 +424,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8BFB601235CC12D00D172E2 /* MatrixGenerator.swift in Sources */,
+				D8C130E023636F7C007E421D /* BitmapMetadata.swift in Sources */,
 				D8BFB609235CEA8600D172E2 /* ServicesPool.swift in Sources */,
-				D8CD4E1A2361C0A0001215C7 /* FileStream.swift in Sources */,
+				D860225E23657E68003D0AAE /* NSNib+Extensions.swift in Sources */,
 				D8196274235F683D00D78B3F /* MainScreenAssembly.swift in Sources */,
 				D8196277235F6D1000D78B3F /* MainViewController.swift in Sources */,
-				D8BFB604235CC12D00D172E2 /* MatrixT.swift in Sources */,
 				D8E230B023602F1700336917 /* MainViewModel.swift in Sources */,
+				D85007912364B0EE0052A514 /* BitmapView.swift in Sources */,
 				D8BFB602235CC12D00D172E2 /* Matrix.swift in Sources */,
+				D860226223658E53003D0AAE /* FileReader.swift in Sources */,
+				D85007932364D5AC0052A514 /* BitmapViewModel.swift in Sources */,
 				D8196271235F67A900D78B3F /* MainWindowController.swift in Sources */,
 				D8BFB607235CCB9500D172E2 /* CoreAssembly.swift in Sources */,
 				D8BFB603235CC12D00D172E2 /* MatrixExtensions.swift in Sources */,
 				D8BFB5DD235CBE8B00D172E2 /* AppDelegate.swift in Sources */,
+				D8C130E223638E6B007E421D /* BitmapMetadataParser.swift in Sources */,
 				D8BFB605235CC12D00D172E2 /* NeuralNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,9 +447,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8602266236610CF003D0AAE /* MatrixTests.swift in Sources */,
+				D8A291E723642DC900ABA223 /* Matrix.swift in Sources */,
+				D8C130E523638ECB007E421D /* BitmapMetadataParserTests.swift in Sources */,
 				D8E230B42360301F00336917 /* TrainCSVReaderTests.swift in Sources */,
-				D8CD4E1B2361C0CB001215C7 /* FileStream.swift in Sources */,
+				D8A291E1236429BC00ABA223 /* BitmapMetadataParser.swift in Sources */,
+				D8A291E92364398C00ABA223 /* MatrixGenerator.swift in Sources */,
 				D8BFB5F0235CBE8C00D172E2 /* NeuralNetworkTests.swift in Sources */,
+				D860226323658F17003D0AAE /* FileReader.swift in Sources */,
+				D8A291E423642A5D00ABA223 /* BitmapMetadata.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +600,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NeuralNetwork/NeuralNetwork.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = L454S9SQH7;
@@ -561,6 +622,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NeuralNetwork/NeuralNetwork.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = L454S9SQH7;

@@ -14,10 +14,15 @@ protocol MainViewInput {
 
 class MainViewController: NSViewController, MainViewInput {
     var servicesPool: ServicesPoolInput?
+    var bitmapView: BitmapView?
+    var viewModel: MainViewModel!
+    @IBOutlet private var bitmapViewContainer: NSView!
 
-    convenience init(servicesPool: ServicesPoolInput?) {
+
+    convenience init(servicesPool: ServicesPoolInput?, viewModel: MainViewModel) {
         self.init(nibName: "MainViewController", bundle: nil)
         self.servicesPool = servicesPool
+        self.viewModel = viewModel
     }
 
     override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
@@ -32,6 +37,27 @@ class MainViewController: NSViewController, MainViewInput {
         return self
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addBitmapView()
+    }
+
+    fileprivate func addBitmapView() {
+        if let viewNib = NSNib(nibNamed: "BitmapView", bundle: nil),
+            let bitmapView: BitmapView = viewNib.instantiate(withOwner: nil) {
+            self.bitmapView = bitmapView
+            bitmapView.translatesAutoresizingMaskIntoConstraints = false
+            self.bitmapViewContainer.addSubview(bitmapView)
+            bitmapView.leadingAnchor.constraint(equalTo: bitmapViewContainer.leadingAnchor).isActive = true
+            bitmapView.trailingAnchor.constraint(equalTo: bitmapViewContainer.trailingAnchor).isActive = true
+            bitmapView.topAnchor.constraint(equalTo: bitmapViewContainer.topAnchor).isActive = true
+            bitmapView.bottomAnchor.constraint(equalTo: bitmapViewContainer.bottomAnchor).isActive = true
+
+            bitmapView.accept(viewModel.bitmapViewModel!)
+        }
+    }
+
+
     @IBAction func trainDidTap(_ sender: NSButton) {
         let inputNodes = 3
         let hiddenNodes = 3
@@ -41,27 +67,32 @@ class MainViewController: NSViewController, MainViewInput {
         let neuralNetwork = NeuralNetwork(inputNodes: inputNodes, hiddenNodes: hiddenNodes, outputNodes: outputNodes, learningRate: learningRate)
         let result = try? neuralNetwork.query(inputs: 1.0, 0.5, -1.5)
         print(result)
+    }
 
-
+    @IBAction func showBitmapView(_ sender: NSButton) {
+        let array = Array(repeating: 3, count: 100)
+        let matrix = Matrix(rows: 10, columns: 10, array: array);
+        self.bitmapView?.drawMatrix(matrix)
     }
 
     @IBAction func loadResourcesDidTap(_ sender: NSButton) {
+        showPanelAndSelecFile()
+    }
+
+    func showPanelAndSelecFile() {
         self.servicesPool?.startNeuralNetwork()
-        // 1
+
         guard let window = view.window else { return }
 
-        // 2
         let panel = NSOpenPanel()
         panel.canChooseFiles = true
         panel.canChooseDirectories = false
         panel.allowsMultipleSelection = false
 
-        // 3
         panel.beginSheetModal(for: window) { (result) in
-            if result.rawValue == NSFileHandlingPanelOKButton {
-            // 4
-            let selectedFolder = panel.urls[0]
-            print(selectedFolder)
+            if result == NSApplication.ModalResponse.OK {
+            let selectedFile = panel.urls[0]
+                self.viewModel.openFileURL(selectedFile)
           }
         }
     }

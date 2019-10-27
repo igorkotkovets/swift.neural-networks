@@ -11,7 +11,29 @@ import RxSwift
 
 
 class MainViewModel {
-//    let 
+    var bitmapViewModel: BitmapViewModel?
+
+    init(bitmapViewModel: BitmapViewModel) {
+        self.bitmapViewModel = bitmapViewModel
+    }
+
+    func openFileURL(_ url: URL) {
+        if let fileReader = try? FileReader(fileURL: url) {
+            let parser = BitmapMetadataParser()
+            var allSymbols = [BitmapMetadata]()
+            var str: String? = nil
+            repeat {
+                str = fileReader.readLine()
+                if let string = str,
+                    let bitmap = parser.parse(string) {
+                    allSymbols.append(bitmap)
+                }
+            } while str != nil
+
+            bitmapViewModel?.acceptBitmaps(allSymbols)
+        }
+    }
+
     func bindObservableToReadTrainFile(_ observable: Observable<Void>) {
 
     }

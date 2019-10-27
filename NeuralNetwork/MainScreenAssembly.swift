@@ -14,7 +14,9 @@ class MainScreenAssembly: Assembly {
         container.register(MainViewInput.self) { resolver in
 //            let windowController = MainWindowController()
             let servicesPool = resolver.resolve(ServicesPoolInput.self)
-            let viewController = MainViewController(servicesPool: servicesPool)
+            let bitmapViewModel = BitmapViewModel()
+            let viewModel = MainViewModel(bitmapViewModel: bitmapViewModel)
+            let viewController = MainViewController(servicesPool: servicesPool, viewModel: viewModel)
 //            windowController.contentViewController = viewController
             return viewController
         }

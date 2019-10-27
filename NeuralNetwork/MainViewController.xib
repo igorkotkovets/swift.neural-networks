@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14868" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14868"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="NeuralNetwork" customModuleProvider="target">
             <connections>
+                <outlet property="bitmapViewContainer" destination="yhl-Uq-g6f" id="4Li-OT-pQD"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="363"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-jE-Ypn">
-                    <rect key="frame" x="14" y="224" width="168" height="32"/>
+                    <rect key="frame" x="26" y="303" width="247" height="32"/>
                     <buttonCell key="cell" type="push" title="Train Neural Network" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ovc-B1-WbY">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -27,12 +28,46 @@
                         <action selector="trainDidTap:" target="-2" id="7fG-CI-JRD"/>
                     </connections>
                 </button>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="yhl-Uq-g6f">
+                    <rect key="frame" x="299" y="150" width="181" height="181"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="yhl-Uq-g6f" secondAttribute="height" multiplier="1:1" id="yN2-yT-LzJ"/>
+                    </constraints>
+                </customView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="drB-zs-6wg">
+                    <rect key="frame" x="26" y="250" width="81" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z94-t0-orc">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="showBitmapView:" target="-2" id="bWx-dL-OIH"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NzP-Y1-d9u">
+                    <rect key="frame" x="348" y="102" width="83" height="32"/>
+                    <buttonCell key="cell" type="push" title="Bitmap" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="abc-f2-J1N">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="loadResourcesDidTap:" target="-2" id="sb6-Bd-6bH"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
-                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="IZA-dT-4zV"/>
-                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="wFu-Pv-IIK"/>
+                <constraint firstItem="yhl-Uq-g6f" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="0L7-5c-PZ7"/>
+                <constraint firstItem="drB-zs-6wg" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="Drj-zP-9Yu"/>
+                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="IZA-dT-4zV"/>
+                <constraint firstItem="yhl-Uq-g6f" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="1:2" id="RpX-Ew-qRv"/>
+                <constraint firstItem="drB-zs-6wg" firstAttribute="top" secondItem="DaZ-jE-Ypn" secondAttribute="bottom" constant="32" id="Vef-9W-Df1"/>
+                <constraint firstAttribute="trailing" secondItem="yhl-Uq-g6f" secondAttribute="trailing" id="Z4I-DS-A7J"/>
+                <constraint firstItem="yhl-Uq-g6f" firstAttribute="leading" secondItem="DaZ-jE-Ypn" secondAttribute="trailing" constant="32" id="Zcl-WN-jes"/>
+                <constraint firstItem="NzP-Y1-d9u" firstAttribute="top" secondItem="yhl-Uq-g6f" secondAttribute="bottom" constant="20" id="Ztl-AK-iVW"/>
+                <constraint firstItem="NzP-Y1-d9u" firstAttribute="centerX" secondItem="yhl-Uq-g6f" secondAttribute="centerX" id="jIO-ej-o8T"/>
+                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="wFu-Pv-IIK"/>
             </constraints>
-            <point key="canvasLocation" x="140" y="154"/>
+            <point key="canvasLocation" x="-348" y="195.5"/>
         </customView>
     </objects>
 </document>
