@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-jE-Ypn">
-                    <rect key="frame" x="26" y="303" width="247" height="32"/>
+                    <rect key="frame" x="26" y="303" width="168" height="32"/>
                     <buttonCell key="cell" type="push" title="Train Neural Network" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ovc-B1-WbY">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -35,8 +35,8 @@
                     </constraints>
                 </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="drB-zs-6wg">
-                    <rect key="frame" x="26" y="250" width="81" height="32"/>
-                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z94-t0-orc">
+                    <rect key="frame" x="26" y="250" width="169" height="32"/>
+                    <buttonCell key="cell" type="push" title="Draw custom graphic" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z94-t0-orc">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -45,8 +45,8 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NzP-Y1-d9u">
-                    <rect key="frame" x="348" y="102" width="83" height="32"/>
-                    <buttonCell key="cell" type="push" title="Bitmap" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="abc-f2-J1N">
+                    <rect key="frame" x="328" y="102" width="122" height="32"/>
+                    <buttonCell key="cell" type="push" title="Load CSV file" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="abc-f2-J1N">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -62,7 +62,6 @@
                 <constraint firstItem="yhl-Uq-g6f" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="1:2" id="RpX-Ew-qRv"/>
                 <constraint firstItem="drB-zs-6wg" firstAttribute="top" secondItem="DaZ-jE-Ypn" secondAttribute="bottom" constant="32" id="Vef-9W-Df1"/>
                 <constraint firstAttribute="trailing" secondItem="yhl-Uq-g6f" secondAttribute="trailing" id="Z4I-DS-A7J"/>
-                <constraint firstItem="yhl-Uq-g6f" firstAttribute="leading" secondItem="DaZ-jE-Ypn" secondAttribute="trailing" constant="32" id="Zcl-WN-jes"/>
                 <constraint firstItem="NzP-Y1-d9u" firstAttribute="top" secondItem="yhl-Uq-g6f" secondAttribute="bottom" constant="20" id="Ztl-AK-iVW"/>
                 <constraint firstItem="NzP-Y1-d9u" firstAttribute="centerX" secondItem="yhl-Uq-g6f" secondAttribute="centerX" id="jIO-ej-o8T"/>
                 <constraint firstItem="DaZ-jE-Ypn" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="wFu-Pv-IIK"/>

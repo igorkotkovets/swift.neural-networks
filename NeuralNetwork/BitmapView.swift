@@ -102,8 +102,8 @@ class BitmapView: NSView {
                 let width = drawWidth/CGFloat(matrix.columns)
                 let height = drawHeight/CGFloat(matrix.rows)
                 let xLeft = startX+CGFloat(column)*width
-                let yTop = endY-CGFloat(row)*height
-                let rect = NSRect(x: xLeft, y: yTop, width: width, height: height)
+                let yBottom = endY-CGFloat(row+1)*height
+                let rect = NSRect(x: xLeft, y: yBottom, width: width, height: height)
                 let cell = Cell(color: color.cgColor, rect: rect)
                 cells.append(cell)
             }
@@ -114,8 +114,26 @@ class BitmapView: NSView {
         super.draw(dirtyRect)
 
         if let ctx = NSGraphicsContext.current?.cgContext {
+
             let scaleFactor = NSScreen.main?.backingScaleFactor ?? 1.0
             let px1Width = 1.0/scaleFactor
+            ctx.setLineWidth(px1Width)
+            ctx.setStrokeColor(NSColor.blue.cgColor)
+            for line in verticalLines {
+                let path = CGMutablePath()
+                path.move( to: line.p0)
+                path.addLine(to: line.p1)
+                path.closeSubpath()
+                ctx.addPath(path)
+            }
+            for line in horizontalLines {
+                let path = CGMutablePath()
+                path.move( to: line.p0)
+                path.addLine(to: line.p1)
+                path.closeSubpath()
+                ctx.addPath(path)
+            }
+            ctx.drawPath(using: .stroke)
 
             for cell in cells {
                 let path = CGMutablePath()
@@ -125,28 +143,6 @@ class BitmapView: NSView {
                 ctx.setFillColor(cell.color)
                 ctx.drawPath(using: .fill)
             }
-
-            ctx.setLineWidth(px1Width)
-            ctx.setFillColor(NSColor.green.cgColor)
-            ctx.setStrokeColor(NSColor.blue.cgColor)
-
-            for line in verticalLines {
-                let path = CGMutablePath()
-                path.move( to: line.p0)
-                path.addLine(to: line.p1)
-                path.closeSubpath()
-                ctx.addPath(path)
-            }
-
-            for line in horizontalLines {
-                let path = CGMutablePath()
-                path.move( to: line.p0)
-                path.addLine(to: line.p1)
-                path.closeSubpath()
-                ctx.addPath(path)
-            }
-
-            ctx.drawPath(using: .stroke)
         }
     }
 }
