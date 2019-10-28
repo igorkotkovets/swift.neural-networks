@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="NeuralNetwork" customModuleProvider="target">
             <connections>
                 <outlet property="bitmapViewContainer" destination="yhl-Uq-g6f" id="4Li-OT-pQD"/>
+                <outlet property="resetNeuralNetworkButton" destination="v6X-3L-xGW" id="NA3-aQ-hib"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -19,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-jE-Ypn">
-                    <rect key="frame" x="26" y="655" width="169" height="32"/>
+                    <rect key="frame" x="26" y="602" width="172" height="32"/>
                     <buttonCell key="cell" type="push" title="Train Neural Network" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ovc-B1-WbY">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -35,7 +36,7 @@
                     </constraints>
                 </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="drB-zs-6wg">
-                    <rect key="frame" x="26" y="602" width="169" height="32"/>
+                    <rect key="frame" x="26" y="549" width="172" height="32"/>
                     <buttonCell key="cell" type="push" title="Draw custom graphic" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z94-t0-orc">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -45,7 +46,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9NA-Fo-fqD">
-                    <rect key="frame" x="26" y="708" width="169" height="32"/>
+                    <rect key="frame" x="26" y="655" width="172" height="32"/>
                     <buttonCell key="cell" type="push" title="Load Train File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kgG-ae-jfp">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -54,19 +55,32 @@
                         <action selector="loadTrainingFile:" target="-2" id="2lM-Mc-uLs"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v6X-3L-xGW">
+                    <rect key="frame" x="26" y="708" width="172" height="32"/>
+                    <buttonCell key="cell" type="push" title="Reset Neural Network" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0r6-Og-evP">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="didTapResetNeuralNetwork:" target="-2" id="clh-Lc-4Zl"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="yhl-Uq-g6f" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="0L7-5c-PZ7"/>
                 <constraint firstItem="9NA-Fo-fqD" firstAttribute="width" secondItem="DaZ-jE-Ypn" secondAttribute="width" id="4rW-Xt-VPD"/>
                 <constraint firstItem="drB-zs-6wg" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="Drj-zP-9Yu"/>
-                <constraint firstItem="9NA-Fo-fqD" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="F95-uH-Lsc"/>
+                <constraint firstItem="v6X-3L-xGW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="G1d-nt-EzF"/>
+                <constraint firstItem="v6X-3L-xGW" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="LSv-Ry-RAz"/>
                 <constraint firstItem="yhl-Uq-g6f" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="1:2" id="RpX-Ew-qRv"/>
                 <constraint firstItem="drB-zs-6wg" firstAttribute="top" secondItem="DaZ-jE-Ypn" secondAttribute="bottom" constant="32" id="Vef-9W-Df1"/>
                 <constraint firstAttribute="trailing" secondItem="yhl-Uq-g6f" secondAttribute="trailing" constant="32" id="Z4I-DS-A7J"/>
                 <constraint firstItem="9NA-Fo-fqD" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="gOF-xj-wOd"/>
+                <constraint firstItem="9NA-Fo-fqD" firstAttribute="top" secondItem="v6X-3L-xGW" secondAttribute="bottom" constant="32" id="qZM-0R-nIu"/>
                 <constraint firstItem="DaZ-jE-Ypn" firstAttribute="width" secondItem="drB-zs-6wg" secondAttribute="width" id="rnh-Gc-bAH"/>
                 <constraint firstItem="DaZ-jE-Ypn" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="wFu-Pv-IIK"/>
                 <constraint firstItem="DaZ-jE-Ypn" firstAttribute="top" secondItem="9NA-Fo-fqD" secondAttribute="bottom" constant="32" id="xNj-aE-ogn"/>
+                <constraint firstItem="v6X-3L-xGW" firstAttribute="width" secondItem="9NA-Fo-fqD" secondAttribute="width" id="yRR-HX-kuM"/>
             </constraints>
             <point key="canvasLocation" x="25" y="124"/>
         </customView>

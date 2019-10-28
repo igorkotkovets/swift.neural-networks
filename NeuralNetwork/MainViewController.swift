@@ -7,6 +7,8 @@
 //
 
 import Cocoa
+import RxCocoa
+import RxSwift
 
 protocol MainViewInput {
     func viewController() -> NSViewController
@@ -17,6 +19,8 @@ class MainViewController: NSViewController, MainViewInput {
     var bitmapView: BitmapView?
     var viewModel: MainViewModel!
     @IBOutlet private var bitmapViewContainer: NSView!
+    @IBOutlet private var resetNeuralNetworkButton: NSButton!
+    private let disposeBag = DisposeBag()
 
 
     convenience init(servicesPool: ServicesPoolInput?, viewModel: MainViewModel) {
@@ -40,6 +44,7 @@ class MainViewController: NSViewController, MainViewInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         addBitmapView()
+        bindControlsWithViewModel()
     }
 
     fileprivate func addBitmapView() {
@@ -57,6 +62,12 @@ class MainViewController: NSViewController, MainViewInput {
         }
     }
 
+    func bindControlsWithViewModel() {
+        viewModel
+            .bindObservableToResetNeuralNetwork(resetNeuralNetworkButton.rx.tap.asObservable(),
+                                                disposeBag: disposeBag)
+    }
+
 
     @IBAction func trainDidTap(_ sender: NSButton) {
         let inputNodes = 3
@@ -70,9 +81,13 @@ class MainViewController: NSViewController, MainViewInput {
     }
 
     @IBAction func showBitmapView(_ sender: NSButton) {
-//        let array = Array(repeating: 3, count: 100)
-//        let matrix = Matrix(rows: 10, columns: 10, array: array);
-//        self.bitmapView?.drawMatrix(matrix)
+        //        let array = Array(repeating: 3, count: 100)
+        //        let matrix = Matrix(rows: 10, columns: 10, array: array);
+        //        self.bitmapView?.drawMatrix(matrix)
+    }
+
+    @IBAction func didTapResetNeuralNetwork(_ sender: NSButton) {
+        
     }
 
     @IBAction func loadTrainingFile(_ sender: NSButton) {
@@ -89,9 +104,9 @@ class MainViewController: NSViewController, MainViewInput {
 
         panel.beginSheetModal(for: window) { (result) in
             if result == NSApplication.ModalResponse.OK {
-            let selectedFile = panel.urls[0]
-                self.viewModel.openFileURL(selectedFile)
-          }
+                let selectedFile = panel.urls[0]
+                self.viewModel.openTrainFileAtURL(selectedFile)
+            }
         }
     }
     
