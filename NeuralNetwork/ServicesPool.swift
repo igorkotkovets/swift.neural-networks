@@ -13,10 +13,6 @@ protocol ServicesPoolInput {
     func startNeuralNetwork()
 }
 
-protocol ServicesPoolDelegate {
-    func didStartPlayer()
-}
-
 class ServicesPool: ServicesPoolInput {
     private let resolver: Resolver
     private var _neuralNetwork: NeuralNetworkInput?

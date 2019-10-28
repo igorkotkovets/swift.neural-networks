@@ -9,8 +9,8 @@
 import Foundation
 
 
-let defaultNormalizationFunction: (Int) -> CGFloat = { x in
-    return CGFloat(x)/255.0*0.99+0.01
+let defaultNormalizationFunction: (Int) -> Double = { x in
+    return Double(x)/255.0*0.99+0.01
 }
 
 struct BitmapMetadataParser {
@@ -18,9 +18,9 @@ struct BitmapMetadataParser {
     let bitmapElementsCount: Int = 784
     let rows = 28
     let columns = 28
-    let normalizationFunction: (Int) -> CGFloat
+    let normalizationFunction: (Int) -> Double
 
-    init(normalizationFunction: @escaping ((Int) -> CGFloat) = defaultNormalizationFunction) {
+    init(normalizationFunction: @escaping ((Int) -> Double) = defaultNormalizationFunction) {
         self.normalizationFunction = normalizationFunction
     }
 
@@ -40,7 +40,7 @@ struct BitmapMetadataParser {
             return nil
         }
 
-        let matrix: Matrix<CGFloat> = Matrix(rows: 28, columns: 28, array: Array(bitmap))
+        let matrix: Matrix<Double> = Matrix(rows: 28, columns: 28, array: Array(bitmap))
         let metadata = BitmapMetadata(value: value, matrix: matrix)
         return metadata
     }

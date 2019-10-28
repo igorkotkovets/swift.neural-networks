@@ -10,5 +10,5 @@ import Foundation
 
 struct BitmapMetadata {
     let value: Int
-    let matrix: Matrix<CGFloat> // 28x28=784
+    let matrix: Matrix<Double> // 28x28=784
 }
