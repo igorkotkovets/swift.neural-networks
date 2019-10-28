@@ -9,7 +9,7 @@
 import XCTest
 
 class BitmapMetadataParserTests: XCTestCase {
-    let parser = BitmapMetadataParser()
+    let parser = CharactersParser()
     let bundle = Bundle.main
 
     func testParsingBitmapMetadata() {
@@ -54,7 +54,7 @@ class BitmapMetadataParserTests: XCTestCase {
 
         var line = fileReader?.readLine()
         XCTAssertNotNil(line)
-        let parser = BitmapMetadataParser()
+        let parser = CharactersParser()
         var bitmap = parser.parse(line!)
         XCTAssertNotNil(bitmap)
         XCTAssertEqual(5, bitmap!.value)

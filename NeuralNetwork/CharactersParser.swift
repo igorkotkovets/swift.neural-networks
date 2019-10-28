@@ -13,7 +13,7 @@ let defaultNormalizationFunction: (Int) -> Double = { x in
     return Double(x)/255.0*0.99+0.01
 }
 
-struct BitmapMetadataParser {
+struct CharactersParser {
     let totalElementsCount: Int = 785
     let bitmapElementsCount: Int = 784
     let rows = 28
@@ -25,7 +25,7 @@ struct BitmapMetadataParser {
     }
 
 
-    func parse(_ str: String) -> BitmapMetadata? {
+    func parse(_ str: String) -> CharacterMetadata? {
         let strComponents = str.components(separatedBy: ",")
         let ints = strComponents.compactMap({ Int($0) })
 
@@ -41,7 +41,7 @@ struct BitmapMetadataParser {
         }
 
         let matrix: Matrix<Double> = Matrix(rows: 28, columns: 28, array: Array(bitmap))
-        let metadata = BitmapMetadata(value: value, matrix: matrix)
+        let metadata = CharacterMetadata(value: value, matrix: matrix)
         return metadata
     }
 }

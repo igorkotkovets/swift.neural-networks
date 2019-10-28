@@ -12,6 +12,7 @@ import RxSwift
 
 class MainViewModel {
     var bitmapViewModel: BitmapViewModel?
+    private var neuralNetwork: NeuralNetworkInput?
 
     init(bitmapViewModel: BitmapViewModel) {
         self.bitmapViewModel = bitmapViewModel
@@ -19,8 +20,8 @@ class MainViewModel {
 
     func openFileURL(_ url: URL) {
         if let fileReader = try? FileReader(fileURL: url) {
-            let parser = BitmapMetadataParser()
-            var allSymbols = [BitmapMetadata]()
+            let parser = CharactersParser()
+            var allSymbols = [CharacterMetadata]()
             var str: String? = nil
             repeat {
                 str = fileReader.readLine()

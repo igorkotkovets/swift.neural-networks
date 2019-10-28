@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BitmapMetadata {
+struct CharacterMetadata {
     let value: Int
     let matrix: Matrix<Double> // 28x28=784
 }

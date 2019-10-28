@@ -15,11 +15,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="363"/>
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-jE-Ypn">
-                    <rect key="frame" x="26" y="303" width="168" height="32"/>
+                    <rect key="frame" x="26" y="655" width="169" height="32"/>
                     <buttonCell key="cell" type="push" title="Train Neural Network" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ovc-B1-WbY">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -29,13 +29,13 @@
                     </connections>
                 </button>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="yhl-Uq-g6f">
-                    <rect key="frame" x="299" y="150" width="181" height="181"/>
+                    <rect key="frame" x="608" y="352" width="384" height="384"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="yhl-Uq-g6f" secondAttribute="height" multiplier="1:1" id="yN2-yT-LzJ"/>
                     </constraints>
                 </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="drB-zs-6wg">
-                    <rect key="frame" x="26" y="250" width="169" height="32"/>
+                    <rect key="frame" x="26" y="602" width="169" height="32"/>
                     <buttonCell key="cell" type="push" title="Draw custom graphic" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z94-t0-orc">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -44,29 +44,31 @@
                         <action selector="showBitmapView:" target="-2" id="bWx-dL-OIH"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NzP-Y1-d9u">
-                    <rect key="frame" x="328" y="102" width="122" height="32"/>
-                    <buttonCell key="cell" type="push" title="Load CSV file" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="abc-f2-J1N">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9NA-Fo-fqD">
+                    <rect key="frame" x="26" y="708" width="169" height="32"/>
+                    <buttonCell key="cell" type="push" title="Load Train File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kgG-ae-jfp">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="loadResourcesDidTap:" target="-2" id="sb6-Bd-6bH"/>
+                        <action selector="loadTrainingFile:" target="-2" id="2lM-Mc-uLs"/>
                     </connections>
                 </button>
             </subviews>
             <constraints>
                 <constraint firstItem="yhl-Uq-g6f" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="0L7-5c-PZ7"/>
+                <constraint firstItem="9NA-Fo-fqD" firstAttribute="width" secondItem="DaZ-jE-Ypn" secondAttribute="width" id="4rW-Xt-VPD"/>
                 <constraint firstItem="drB-zs-6wg" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="Drj-zP-9Yu"/>
-                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="IZA-dT-4zV"/>
+                <constraint firstItem="9NA-Fo-fqD" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="F95-uH-Lsc"/>
                 <constraint firstItem="yhl-Uq-g6f" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="1:2" id="RpX-Ew-qRv"/>
                 <constraint firstItem="drB-zs-6wg" firstAttribute="top" secondItem="DaZ-jE-Ypn" secondAttribute="bottom" constant="32" id="Vef-9W-Df1"/>
-                <constraint firstAttribute="trailing" secondItem="yhl-Uq-g6f" secondAttribute="trailing" id="Z4I-DS-A7J"/>
-                <constraint firstItem="NzP-Y1-d9u" firstAttribute="top" secondItem="yhl-Uq-g6f" secondAttribute="bottom" constant="20" id="Ztl-AK-iVW"/>
-                <constraint firstItem="NzP-Y1-d9u" firstAttribute="centerX" secondItem="yhl-Uq-g6f" secondAttribute="centerX" id="jIO-ej-o8T"/>
+                <constraint firstAttribute="trailing" secondItem="yhl-Uq-g6f" secondAttribute="trailing" constant="32" id="Z4I-DS-A7J"/>
+                <constraint firstItem="9NA-Fo-fqD" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="gOF-xj-wOd"/>
+                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="width" secondItem="drB-zs-6wg" secondAttribute="width" id="rnh-Gc-bAH"/>
                 <constraint firstItem="DaZ-jE-Ypn" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="wFu-Pv-IIK"/>
+                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="top" secondItem="9NA-Fo-fqD" secondAttribute="bottom" constant="32" id="xNj-aE-ogn"/>
             </constraints>
-            <point key="canvasLocation" x="-348" y="195.5"/>
+            <point key="canvasLocation" x="25" y="124"/>
         </customView>
     </objects>
 </document>

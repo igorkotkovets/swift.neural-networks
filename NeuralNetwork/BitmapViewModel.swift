@@ -12,9 +12,9 @@ import RxSwift
 
 class BitmapViewModel {
     private var currentIndex = 0
-    private var bitmapMetadataVariable = BehaviorRelay<BitmapMetadata?>(value: nil)
-    var bitmapMetadataObservable: Observable<BitmapMetadata?> { return bitmapMetadataVariable.asObservable() }
-    private var bitmaps: [BitmapMetadata]?
+    private var bitmapMetadataVariable = BehaviorRelay<CharacterMetadata?>(value: nil)
+    var bitmapMetadataObservable: Observable<CharacterMetadata?> { return bitmapMetadataVariable.asObservable() }
+    private var bitmaps: [CharacterMetadata]?
     private var valueVariable = BehaviorRelay<Int?>(value: nil)
     private var valueObservable: Observable<String> {
         return valueVariable
@@ -64,7 +64,7 @@ class BitmapViewModel {
             .subscribe().disposed(by: disposeBag)
     }
 
-    func acceptBitmaps(_ list: [BitmapMetadata]) {
+    func acceptBitmaps(_ list: [CharacterMetadata]) {
         bitmaps = list
         self.currentIndex = 0
         bitmapMetadataVariable.accept(list.first)

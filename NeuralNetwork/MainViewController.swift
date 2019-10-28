@@ -75,13 +75,11 @@ class MainViewController: NSViewController, MainViewInput {
 //        self.bitmapView?.drawMatrix(matrix)
     }
 
-    @IBAction func loadResourcesDidTap(_ sender: NSButton) {
+    @IBAction func loadTrainingFile(_ sender: NSButton) {
         showPanelAndSelecFile()
     }
 
     func showPanelAndSelecFile() {
-        self.servicesPool?.startNeuralNetwork()
-
         guard let window = view.window else { return }
 
         let panel = NSOpenPanel()

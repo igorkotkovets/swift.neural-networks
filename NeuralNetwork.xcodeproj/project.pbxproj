@@ -21,8 +21,8 @@
 		D860226223658E53003D0AAE /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860226123658E53003D0AAE /* FileReader.swift */; };
 		D860226323658F17003D0AAE /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860226123658E53003D0AAE /* FileReader.swift */; };
 		D8602266236610CF003D0AAE /* MatrixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8602265236610CF003D0AAE /* MatrixTests.swift */; };
-		D8A291E1236429BC00ABA223 /* BitmapMetadataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130E123638E6B007E421D /* BitmapMetadataParser.swift */; };
-		D8A291E423642A5D00ABA223 /* BitmapMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130DF23636F7C007E421D /* BitmapMetadata.swift */; };
+		D8A291E1236429BC00ABA223 /* CharactersParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130E123638E6B007E421D /* CharactersParser.swift */; };
+		D8A291E423642A5D00ABA223 /* CharacterMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130DF23636F7C007E421D /* CharacterMetadata.swift */; };
 		D8A291E723642DC900ABA223 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FC235CC12C00D172E2 /* Matrix.swift */; };
 		D8A291E92364398C00ABA223 /* MatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */; };
 		D8BFB5DD235CBE8B00D172E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5DC235CBE8B00D172E2 /* AppDelegate.swift */; };
@@ -34,8 +34,8 @@
 		D8BFB605235CC12D00D172E2 /* NeuralNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FF235CC12D00D172E2 /* NeuralNetwork.swift */; };
 		D8BFB607235CCB9500D172E2 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB606235CCB9500D172E2 /* CoreAssembly.swift */; };
 		D8BFB609235CEA8600D172E2 /* ServicesPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB608235CEA8600D172E2 /* ServicesPool.swift */; };
-		D8C130E023636F7C007E421D /* BitmapMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130DF23636F7C007E421D /* BitmapMetadata.swift */; };
-		D8C130E223638E6B007E421D /* BitmapMetadataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130E123638E6B007E421D /* BitmapMetadataParser.swift */; };
+		D8C130E023636F7C007E421D /* CharacterMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130DF23636F7C007E421D /* CharacterMetadata.swift */; };
+		D8C130E223638E6B007E421D /* CharactersParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130E123638E6B007E421D /* CharactersParser.swift */; };
 		D8C130E523638ECB007E421D /* BitmapMetadataParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130E423638ECB007E421D /* BitmapMetadataParserTests.swift */; };
 		D8CD4E662362EF8C001215C7 /* mnist_train_100.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */; };
 		D8CD4E672362EF91001215C7 /* mnist_train_100.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */; };
@@ -90,8 +90,8 @@
 		D8BFB5FF235CC12D00D172E2 /* NeuralNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuralNetwork.swift; sourceTree = "<group>"; };
 		D8BFB606235CCB9500D172E2 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		D8BFB608235CEA8600D172E2 /* ServicesPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPool.swift; sourceTree = "<group>"; };
-		D8C130DF23636F7C007E421D /* BitmapMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapMetadata.swift; sourceTree = "<group>"; };
-		D8C130E123638E6B007E421D /* BitmapMetadataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapMetadataParser.swift; sourceTree = "<group>"; };
+		D8C130DF23636F7C007E421D /* CharacterMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMetadata.swift; sourceTree = "<group>"; };
+		D8C130E123638E6B007E421D /* CharactersParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersParser.swift; sourceTree = "<group>"; };
 		D8C130E423638ECB007E421D /* BitmapMetadataParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapMetadataParserTests.swift; sourceTree = "<group>"; };
 		D8CD4E652362EF8C001215C7 /* mnist_train_100.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_train_100.csv; sourceTree = "<group>"; };
 		D8CD4E75236322F4001215C7 /* 3EmptyLines.cvs */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3EmptyLines.cvs; sourceTree = "<group>"; };
@@ -195,9 +195,9 @@
 				D8BFB5FD235CC12C00D172E2 /* MatrixExtensions.swift */,
 				D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */,
 				D81962A1235F755800D78B3F /* MainMenu.xib */,
-				D8C130DF23636F7C007E421D /* BitmapMetadata.swift */,
+				D8C130DF23636F7C007E421D /* CharacterMetadata.swift */,
 				D860226123658E53003D0AAE /* FileReader.swift */,
-				D8C130E123638E6B007E421D /* BitmapMetadataParser.swift */,
+				D8C130E123638E6B007E421D /* CharactersParser.swift */,
 				D8BFB5FF235CC12D00D172E2 /* NeuralNetwork.swift */,
 				D85007902364B0EE0052A514 /* BitmapView.swift */,
 				D85007942364D5E10052A514 /* BitmapView.xib */,
@@ -424,7 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8BFB601235CC12D00D172E2 /* MatrixGenerator.swift in Sources */,
-				D8C130E023636F7C007E421D /* BitmapMetadata.swift in Sources */,
+				D8C130E023636F7C007E421D /* CharacterMetadata.swift in Sources */,
 				D8BFB609235CEA8600D172E2 /* ServicesPool.swift in Sources */,
 				D860225E23657E68003D0AAE /* NSNib+Extensions.swift in Sources */,
 				D8196274235F683D00D78B3F /* MainScreenAssembly.swift in Sources */,
@@ -438,7 +438,7 @@
 				D8BFB607235CCB9500D172E2 /* CoreAssembly.swift in Sources */,
 				D8BFB603235CC12D00D172E2 /* MatrixExtensions.swift in Sources */,
 				D8BFB5DD235CBE8B00D172E2 /* AppDelegate.swift in Sources */,
-				D8C130E223638E6B007E421D /* BitmapMetadataParser.swift in Sources */,
+				D8C130E223638E6B007E421D /* CharactersParser.swift in Sources */,
 				D8BFB605235CC12D00D172E2 /* NeuralNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,11 +451,11 @@
 				D8A291E723642DC900ABA223 /* Matrix.swift in Sources */,
 				D8C130E523638ECB007E421D /* BitmapMetadataParserTests.swift in Sources */,
 				D8E230B42360301F00336917 /* TrainCSVReaderTests.swift in Sources */,
-				D8A291E1236429BC00ABA223 /* BitmapMetadataParser.swift in Sources */,
+				D8A291E1236429BC00ABA223 /* CharactersParser.swift in Sources */,
 				D8A291E92364398C00ABA223 /* MatrixGenerator.swift in Sources */,
 				D8BFB5F0235CBE8C00D172E2 /* NeuralNetworkTests.swift in Sources */,
 				D860226323658F17003D0AAE /* FileReader.swift in Sources */,
-				D8A291E423642A5D00ABA223 /* BitmapMetadata.swift in Sources */,
+				D8A291E423642A5D00ABA223 /* CharacterMetadata.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
