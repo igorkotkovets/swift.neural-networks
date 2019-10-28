@@ -23,7 +23,7 @@ class BitmapView: NSView {
         let p1: CGPoint
     }
 
-    private var matrix: Matrix<Int>? = nil
+    private var matrix: Matrix<CGFloat>? = nil
     var cells: [Cell] = []
     var verticalLines: [Line] = []
     var horizontalLines: [Line] = []
@@ -56,7 +56,7 @@ class BitmapView: NSView {
         .subscribe().disposed(by: disposeBag)
     }
 
-    func drawMatrix(_ matrix: Matrix<Int>) {
+    func drawMatrix(_ matrix: Matrix<CGFloat>) {
         self.matrix = matrix
         clearPixelView()
         preparePixelViewsFor(matrix)
@@ -69,7 +69,7 @@ class BitmapView: NSView {
         horizontalLines.removeAll()
     }
 
-    func preparePixelViewsFor(_ matrix: Matrix<Int>) {
+    func preparePixelViewsFor(_ matrix: Matrix<CGFloat>) {
         guard let matrix = self.matrix else {
             return
         }
@@ -96,8 +96,7 @@ class BitmapView: NSView {
 
         for row in 0..<matrix.rows {
             for column in 0..<columns {
-                let bitmap = matrix[row,column]
-                let value = CGFloat(bitmap)/255.0
+                let value = matrix[row,column]
                 let color = NSColor(calibratedRed: value, green: value, blue: value, alpha: 1.0)
                 let width = drawWidth/CGFloat(matrix.columns)
                 let height = drawHeight/CGFloat(matrix.rows)

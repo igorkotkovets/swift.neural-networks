@@ -70,9 +70,9 @@ class MainViewController: NSViewController, MainViewInput {
     }
 
     @IBAction func showBitmapView(_ sender: NSButton) {
-        let array = Array(repeating: 3, count: 100)
-        let matrix = Matrix(rows: 10, columns: 10, array: array);
-        self.bitmapView?.drawMatrix(matrix)
+//        let array = Array(repeating: 3, count: 100)
+//        let matrix = Matrix(rows: 10, columns: 10, array: array);
+//        self.bitmapView?.drawMatrix(matrix)
     }
 
     @IBAction func loadResourcesDidTap(_ sender: NSButton) {
