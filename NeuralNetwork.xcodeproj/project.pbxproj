@@ -44,6 +44,9 @@
 		D8E230B42360301F00336917 /* TrainCSVReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E230B32360301F00336917 /* TrainCSVReaderTests.swift */; };
 		D8E230B72360333700336917 /* EmptyFile.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8E230B62360333700336917 /* EmptyFile.csv */; };
 		D8E230BA2360495D00336917 /* 3Lines.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8E230B92360495D00336917 /* 3Lines.csv */; };
+		D8F4EA2F2368C6F000AEBC43 /* MatrixCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4EA2E2368C6F000AEBC43 /* MatrixCalculationsTests.swift */; };
+		D8F4EA312368C94000AEBC43 /* MatrixDoubleCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4EA302368C94000AEBC43 /* MatrixDoubleCalculationsTests.swift */; };
+		D8F4EA332368D4A000AEBC43 /* MatrixGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4EA322368D4A000AEBC43 /* MatrixGeneratorTests.swift */; };
 		EE420AD1B8045EAFC67B7916 /* Pods_NeuralNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D178F083B37E6A23CD4E21E0 /* Pods_NeuralNetwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +102,9 @@
 		D8E230B32360301F00336917 /* TrainCSVReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainCSVReaderTests.swift; sourceTree = "<group>"; };
 		D8E230B62360333700336917 /* EmptyFile.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = EmptyFile.csv; sourceTree = "<group>"; };
 		D8E230B92360495D00336917 /* 3Lines.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = 3Lines.csv; sourceTree = "<group>"; };
+		D8F4EA2E2368C6F000AEBC43 /* MatrixCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixCalculationsTests.swift; sourceTree = "<group>"; };
+		D8F4EA302368C94000AEBC43 /* MatrixDoubleCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixDoubleCalculationsTests.swift; sourceTree = "<group>"; };
+		D8F4EA322368D4A000AEBC43 /* MatrixGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixGeneratorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				D8602265236610CF003D0AAE /* MatrixTests.swift */,
+				D8F4EA2E2368C6F000AEBC43 /* MatrixCalculationsTests.swift */,
+				D8F4EA302368C94000AEBC43 /* MatrixDoubleCalculationsTests.swift */,
+				D8F4EA322368D4A000AEBC43 /* MatrixGeneratorTests.swift */,
 			);
 			path = MatrixTests;
 			sourceTree = "<group>";
@@ -451,10 +460,13 @@
 				D8A291E723642DC900ABA223 /* Matrix.swift in Sources */,
 				D8C130E523638ECB007E421D /* BitmapMetadataParserTests.swift in Sources */,
 				D8E230B42360301F00336917 /* TrainCSVReaderTests.swift in Sources */,
+				D8F4EA332368D4A000AEBC43 /* MatrixGeneratorTests.swift in Sources */,
+				D8F4EA2F2368C6F000AEBC43 /* MatrixCalculationsTests.swift in Sources */,
 				D8A291E1236429BC00ABA223 /* CharactersParser.swift in Sources */,
 				D8A291E92364398C00ABA223 /* MatrixGenerator.swift in Sources */,
 				D8BFB5F0235CBE8C00D172E2 /* NeuralNetworkTests.swift in Sources */,
 				D860226323658F17003D0AAE /* FileReader.swift in Sources */,
+				D8F4EA312368C94000AEBC43 /* MatrixDoubleCalculationsTests.swift in Sources */,
 				D8A291E423642A5D00ABA223 /* CharacterMetadata.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

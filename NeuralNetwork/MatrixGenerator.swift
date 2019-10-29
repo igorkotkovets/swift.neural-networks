@@ -28,8 +28,8 @@ struct MatrixGenerator<T>: IteratorProtocol {
     }
 
     func positionAtIndex(_ index: Int) -> (Int, Int) {
-        let row = index / matrix.rows
-        let column = index % matrix.rows
+        let row = index % matrix.rows
+        let column = index / matrix.rows
         return (row, column)
     }
 }

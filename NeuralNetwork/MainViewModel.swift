@@ -14,6 +14,10 @@ class MainViewModel {
     var bitmapViewModel: BitmapViewModel?
     private var neuralNetwork: NeuralNetworkInput?
     private var trainDataset = [CharacterMetadata]()
+    private let inputNodes = 784
+    private let hiddenNodes = 100
+    private let outputNodes = 10
+    private let learningRate = 0.3
 
     init(bitmapViewModel: BitmapViewModel) {
         self.bitmapViewModel = bitmapViewModel
@@ -40,16 +44,10 @@ class MainViewModel {
     func bindObservableToResetNeuralNetwork(_ observable: Observable<Void>, disposeBag: DisposeBag) {
         observable
             .do(onNext: { [unowned self] in
-                let inputNodes = 3
-                let hiddenNodes = 3
-                let outputNodes = 3
-                let learningRate = 0.3
-
-                self.neuralNetwork = NeuralNetwork(inputNodes: inputNodes,
-                                                   hiddenNodes: hiddenNodes,
-                                                   outputNodes: outputNodes,
-                                                   learningRate: learningRate)
-                let result = try? self.neuralNetwork?.query(inputs: 1.0, 0.5, -1.5)
+                self.neuralNetwork = NeuralNetwork(inputNodes: self.inputNodes,
+                                                   hiddenNodes: self.hiddenNodes,
+                                                   outputNodes: self.outputNodes,
+                                                   learningRate: self.learningRate)
             })
             .subscribe().disposed(by: disposeBag)
 
@@ -62,7 +60,15 @@ class MainViewModel {
         }
     }
 
-    func bindObservableToTrainNetwork(_ observable: Observable<Void>) {
-
+    func bindObservableToTrainNetwork(_ observable: Observable<Void>, disposeBag: DisposeBag) {
+        observable
+        .do(onNext: { [unowned self] in
+            for character in self.trainDataset {
+                var targets = Array<Double>(repeating: 0.01, count: self.outputNodes);
+                targets[character.value] = 0.99
+                try? self.neuralNetwork?.train(inputs: character.matrix.array, targets: targets)
+            }
+        })
+        .subscribe().disposed(by: disposeBag)
     }
 }

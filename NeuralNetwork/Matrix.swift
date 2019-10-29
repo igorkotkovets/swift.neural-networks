@@ -109,8 +109,8 @@ extension Matrix where Element == Double {
             for x in 0..<count {
                 buffer[x] = Double.random(in: valuesInRange)
             }
-
             initializedCount = count
+            print("count: \(count) initializedCount \(initializedCount)")
         }
     }
 
@@ -119,20 +119,20 @@ extension Matrix where Element == Double {
         return Matrix<Element>(rows: rows, columns: columns, array: mult)
     }
 
-    func dot (_ rhs: Matrix<Double>) throws -> Matrix<Double> {
+    func dot(_ rhs: Matrix<Double>) throws -> Matrix<Double> {
         let lhs = self
         guard lhs.columns == rhs.rows else {
             throw Matrix.Error.matrixesAreNotConsistent
         }
 
         var result = Matrix(rows: lhs.rows, columns: rhs.columns, defaultValue: 0)
-        for i in 0..<rhs.columns {
-            for j in 0..<lhs.columns {
-                var value = 0.0
-                for t in 0..<rhs.rows {
-                    value += lhs[j,t]*rhs[t,i]
+        for row in 0..<result.rows {
+            for column in 0..<result.columns {
+                var value: Double = 0.0
+                for i in 0..<lhs.columns {
+                    value += lhs[row,i]*rhs[i,column]
                 }
-                result[j,i] = value
+                result[row,column] = value
             }
         }
         return result

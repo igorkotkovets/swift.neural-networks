@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="bitmapViewContainer" destination="yhl-Uq-g6f" id="4Li-OT-pQD"/>
                 <outlet property="resetNeuralNetworkButton" destination="v6X-3L-xGW" id="NA3-aQ-hib"/>
+                <outlet property="trainNetworkButton" destination="DaZ-jE-Ypn" id="kcs-26-alx"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -25,9 +26,6 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
-                    <connections>
-                        <action selector="trainDidTap:" target="-2" id="7fG-CI-JRD"/>
-                    </connections>
                 </button>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="yhl-Uq-g6f">
                     <rect key="frame" x="608" y="352" width="384" height="384"/>
