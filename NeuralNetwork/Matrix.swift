@@ -113,36 +113,38 @@ extension Matrix where Element == Double {
             print("count: \(count) initializedCount \(initializedCount)")
         }
     }
+}
 
-    func mult(_ value: Double) -> Matrix {
+extension Matrix where Element: SignedNumeric {
+    func mult(_ value: Element) -> Matrix {
         let mult = array.map { $0*value }
         return Matrix<Element>(rows: rows, columns: columns, array: mult)
     }
 
-    func dot(_ rhs: Matrix<Double>) throws -> Matrix<Double> {
+    func dot(_ rhs: Matrix<Element>) throws -> Matrix<Element> {
         let lhs = self
         guard lhs.columns == rhs.rows else {
             throw Matrix.Error.matrixesAreNotConsistent
         }
 
-        var result = Matrix(rows: lhs.rows, columns: rhs.columns, defaultValue: 0)
-        for row in 0..<result.rows {
-            for column in 0..<result.columns {
-                var value: Double = 0.0
+        var resultArray = Array<Element>()
+
+        for row in 0..<lhs.rows {
+            for column in 0..<rhs.columns {
+                var value: Element = .zero
                 for i in 0..<lhs.columns {
                     value += lhs[row,i]*rhs[i,column]
                 }
-                result[row,column] = value
+                resultArray.append(value)
             }
         }
+        let result = Matrix(rows: lhs.rows, columns: rhs.columns, array: resultArray)
         return result
     }
 
     func apply(_ function: ((Matrix) -> Matrix)) -> Matrix {
         return function(self)
     }
-
-
 }
 
 prefix func - (matrix: Matrix<Double>) -> Matrix<Double> {
