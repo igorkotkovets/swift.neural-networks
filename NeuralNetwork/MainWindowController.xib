@@ -29,7 +29,7 @@
             <connections>
                 <outlet property="delegate" destination="JdU-YC-F2S" id="5gM-Vg-7ms"/>
             </connections>
-            <point key="canvasLocation" x="10" y="157"/>
+            <point key="canvasLocation" x="-301" y="47"/>
         </window>
         <customObject id="JdU-YC-F2S" customClass="AppDelegate" customModule="NeuralNetwork" customModuleProvider="target"/>
     </objects>

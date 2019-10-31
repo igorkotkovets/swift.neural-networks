@@ -16,7 +16,7 @@ class MatrixGeneratorTests: XCTestCase {
 
     func testMatrixGeneratorEnumerating() {
         let matrix = Matrix(rows: 1, columns: 4, array: [0,1,2,3])
-        var iterator = MatrixGenerator(matrix: matrix)
+        var iterator = MatrixIterator(matrix: matrix)
 
         var value = iterator.next()
         XCTAssertEqual(0, value!)
@@ -32,7 +32,7 @@ class MatrixGeneratorTests: XCTestCase {
 
     func testPositionFromIndex() {
         let matrix = Matrix(rows: 1, columns: 4, array: [0,1,2,3])
-        let iterator = MatrixGenerator(matrix: matrix)
+        let iterator = MatrixIterator(matrix: matrix)
         var position = iterator.positionAtIndex(0)
         XCTAssertEqual(position.0, 0)
         XCTAssertEqual(position.1, 0)

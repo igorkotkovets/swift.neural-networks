@@ -24,11 +24,11 @@
 		D8A291E1236429BC00ABA223 /* CharactersParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130E123638E6B007E421D /* CharactersParser.swift */; };
 		D8A291E423642A5D00ABA223 /* CharacterMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C130DF23636F7C007E421D /* CharacterMetadata.swift */; };
 		D8A291E723642DC900ABA223 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FC235CC12C00D172E2 /* Matrix.swift */; };
-		D8A291E92364398C00ABA223 /* MatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */; };
+		D8A291E92364398C00ABA223 /* MatrixIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FB235CC12C00D172E2 /* MatrixIterator.swift */; };
 		D8BFB5DD235CBE8B00D172E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5DC235CBE8B00D172E2 /* AppDelegate.swift */; };
 		D8BFB5E1235CBE8B00D172E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BFB5E0235CBE8B00D172E2 /* Assets.xcassets */; };
 		D8BFB5F0235CBE8C00D172E2 /* NeuralNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5EF235CBE8C00D172E2 /* NeuralNetworkTests.swift */; };
-		D8BFB601235CC12D00D172E2 /* MatrixGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */; };
+		D8BFB601235CC12D00D172E2 /* MatrixIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FB235CC12C00D172E2 /* MatrixIterator.swift */; };
 		D8BFB602235CC12D00D172E2 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FC235CC12C00D172E2 /* Matrix.swift */; };
 		D8BFB603235CC12D00D172E2 /* MatrixExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FD235CC12C00D172E2 /* MatrixExtensions.swift */; };
 		D8BFB605235CC12D00D172E2 /* NeuralNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFB5FF235CC12D00D172E2 /* NeuralNetwork.swift */; };
@@ -87,7 +87,7 @@
 		D8BFB5EB235CBE8C00D172E2 /* NeuralNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuralNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BFB5EF235CBE8C00D172E2 /* NeuralNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNetworkTests.swift; sourceTree = "<group>"; };
 		D8BFB5F1235CBE8C00D172E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixGenerator.swift; sourceTree = "<group>"; };
+		D8BFB5FB235CC12C00D172E2 /* MatrixIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixIterator.swift; sourceTree = "<group>"; };
 		D8BFB5FC235CC12C00D172E2 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		D8BFB5FD235CC12C00D172E2 /* MatrixExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixExtensions.swift; sourceTree = "<group>"; };
 		D8BFB5FF235CC12D00D172E2 /* NeuralNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuralNetwork.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 				D8E230AF23602F1700336917 /* MainViewModel.swift */,
 				D8BFB5FC235CC12C00D172E2 /* Matrix.swift */,
 				D8BFB5FD235CC12C00D172E2 /* MatrixExtensions.swift */,
-				D8BFB5FB235CC12C00D172E2 /* MatrixGenerator.swift */,
+				D8BFB5FB235CC12C00D172E2 /* MatrixIterator.swift */,
 				D81962A1235F755800D78B3F /* MainMenu.xib */,
 				D8C130DF23636F7C007E421D /* CharacterMetadata.swift */,
 				D860226123658E53003D0AAE /* FileReader.swift */,
@@ -432,7 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8BFB601235CC12D00D172E2 /* MatrixGenerator.swift in Sources */,
+				D8BFB601235CC12D00D172E2 /* MatrixIterator.swift in Sources */,
 				D8C130E023636F7C007E421D /* CharacterMetadata.swift in Sources */,
 				D8BFB609235CEA8600D172E2 /* ServicesPool.swift in Sources */,
 				D860225E23657E68003D0AAE /* NSNib+Extensions.swift in Sources */,
@@ -463,7 +463,7 @@
 				D8F4EA332368D4A000AEBC43 /* MatrixGeneratorTests.swift in Sources */,
 				D8F4EA2F2368C6F000AEBC43 /* MatrixCalculationsTests.swift in Sources */,
 				D8A291E1236429BC00ABA223 /* CharactersParser.swift in Sources */,
-				D8A291E92364398C00ABA223 /* MatrixGenerator.swift in Sources */,
+				D8A291E92364398C00ABA223 /* MatrixIterator.swift in Sources */,
 				D8BFB5F0235CBE8C00D172E2 /* NeuralNetworkTests.swift in Sources */,
 				D860226323658F17003D0AAE /* FileReader.swift in Sources */,
 				D8F4EA312368C94000AEBC43 /* MatrixDoubleCalculationsTests.swift in Sources */,

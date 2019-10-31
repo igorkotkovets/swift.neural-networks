@@ -11,20 +11,28 @@ import RxSwift
 
 
 class MainViewModel {
-    var bitmapViewModel: BitmapViewModel?
+    var testBitmapViewModel: BitmapViewModel?
+    var trainBitmapViewModel: BitmapViewModel?
     private var neuralNetwork: NeuralNetworkInput?
     private var trainDataset = [CharacterMetadata]()
+    private var testDataset = [CharacterMetadata]()
     private let inputNodes = 784
     private let hiddenNodes = 100
     private let outputNodes = 10
     private let learningRate = 0.3
 
-    init(bitmapViewModel: BitmapViewModel) {
-        self.bitmapViewModel = bitmapViewModel
+    init(trainViewModel: BitmapViewModel, testViewModel: BitmapViewModel) {
+        self.trainBitmapViewModel = trainViewModel
+        self.testBitmapViewModel = testViewModel;
     }
 
-    func openTrainFileAtURL(_ url: URL) {
-        if let fileReader = try? FileReader(fileURL: url) {
+    func openDatasetFileAtURL(_ url: URL) -> Observable<[CharacterMetadata]> {
+        return Observable.create { observer in
+            guard let fileReader = try? FileReader(fileURL: url) else {
+                observer.onCompleted()
+                return Disposables.create()
+            }
+
             let parser = CharactersParser()
             var allSymbols = [CharacterMetadata]()
             var str: String? = nil
@@ -36,12 +44,13 @@ class MainViewModel {
                 }
             } while str != nil
 
-            trainDataset = allSymbols
-            bitmapViewModel?.acceptBitmaps(allSymbols)
+            observer.onNext(allSymbols)
+            observer.onCompleted()
+            return Disposables.create()
         }
     }
 
-    func bindObservableToResetNeuralNetwork(_ observable: Observable<Void>, disposeBag: DisposeBag) {
+    func bindObservableToTrainNeuralNetwork(_ observable: Observable<Void>, disposeBag: DisposeBag) {
         observable
             .do(onNext: { [unowned self] in
                 self.neuralNetwork = NeuralNetwork(inputNodes: self.inputNodes,
@@ -49,26 +58,33 @@ class MainViewModel {
                                                    outputNodes: self.outputNodes,
                                                    learningRate: self.learningRate)
             })
+            .do(onNext: { [unowned self] in
+                for character in self.trainDataset {
+                    var targets = Array<Double>(repeating: 0.01, count: self.outputNodes);
+                    targets[character.value] = 0.99
+                    try? self.neuralNetwork?.train(inputs: character.matrix.array, targets: targets)
+                }
+            })
             .subscribe().disposed(by: disposeBag)
-
-
     }
 
-    func bindObservableToReadTrainFile(_ observable: Observable<Void>) {
-        if trainDataset.count > 0 {
-
-        }
+    func bindObservableToLoadTrainFileAtURL(_ observable: Observable<URL?>, disposeBag: DisposeBag) {
+        observable.filter { $0 != nil}
+            .flatMap { return self.openDatasetFileAtURL($0!) }
+            .do(onNext: { [unowned self] dataset in
+                self.trainDataset = dataset
+                self.trainBitmapViewModel?.acceptBitmaps(dataset)
+            })
+            .subscribe().disposed(by: disposeBag)
     }
 
-    func bindObservableToTrainNetwork(_ observable: Observable<Void>, disposeBag: DisposeBag) {
-        observable
-        .do(onNext: { [unowned self] in
-            for character in self.trainDataset {
-                var targets = Array<Double>(repeating: 0.01, count: self.outputNodes);
-                targets[character.value] = 0.99
-                try? self.neuralNetwork?.train(inputs: character.matrix.array, targets: targets)
-            }
-        })
-        .subscribe().disposed(by: disposeBag)
+    func bindObservableToLoadTestFileAtURL(_ observable: Observable<URL?>, disposeBag: DisposeBag) {
+        observable.filter { $0 != nil}
+            .flatMap { return self.openDatasetFileAtURL($0!) }
+            .do(onNext: { [unowned self] dataset in
+                self.testDataset = dataset
+                self.testBitmapViewModel?.acceptBitmaps(dataset)
+            })
+            .subscribe().disposed(by: disposeBag)
     }
 }

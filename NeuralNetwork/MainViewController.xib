@@ -8,8 +8,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="NeuralNetwork" customModuleProvider="target">
             <connections>
-                <outlet property="bitmapViewContainer" destination="yhl-Uq-g6f" id="4Li-OT-pQD"/>
-                <outlet property="resetNeuralNetworkButton" destination="v6X-3L-xGW" id="NA3-aQ-hib"/>
+                <outlet property="loadTestDatasetButton" destination="KdN-xv-66T" id="jGK-ap-SCQ"/>
+                <outlet property="loadTrainDatasetButton" destination="9NA-Fo-fqD" id="XpG-jl-MiZ"/>
+                <outlet property="testBitmapViewContainer" destination="OBA-hC-YnL" id="UOu-hI-qGl"/>
+                <outlet property="trainBitmapViewContainer" destination="yhl-Uq-g6f" id="4Li-OT-pQD"/>
                 <outlet property="trainNetworkButton" destination="DaZ-jE-Ypn" id="kcs-26-alx"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -21,31 +23,15 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-jE-Ypn">
-                    <rect key="frame" x="26" y="602" width="172" height="32"/>
+                    <rect key="frame" x="542" y="623" width="168" height="32"/>
                     <buttonCell key="cell" type="push" title="Train Neural Network" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ovc-B1-WbY">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="yhl-Uq-g6f">
-                    <rect key="frame" x="608" y="352" width="384" height="384"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="yhl-Uq-g6f" secondAttribute="height" multiplier="1:1" id="yN2-yT-LzJ"/>
-                    </constraints>
-                </customView>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="drB-zs-6wg">
-                    <rect key="frame" x="26" y="549" width="172" height="32"/>
-                    <buttonCell key="cell" type="push" title="Draw custom graphic" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z94-t0-orc">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="showBitmapView:" target="-2" id="bWx-dL-OIH"/>
-                    </connections>
-                </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9NA-Fo-fqD">
-                    <rect key="frame" x="26" y="655" width="172" height="32"/>
-                    <buttonCell key="cell" type="push" title="Load Train File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kgG-ae-jfp">
+                    <rect key="frame" x="542" y="676" width="168" height="32"/>
+                    <buttonCell key="cell" type="push" title="Load Train Dataset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kgG-ae-jfp">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -53,32 +39,61 @@
                         <action selector="loadTrainingFile:" target="-2" id="2lM-Mc-uLs"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v6X-3L-xGW">
-                    <rect key="frame" x="26" y="708" width="172" height="32"/>
-                    <buttonCell key="cell" type="push" title="Reset Neural Network" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0r6-Og-evP">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="OBA-hC-YnL">
+                    <rect key="frame" x="736" y="32" width="256" height="256"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="OBA-hC-YnL" secondAttribute="height" multiplier="1:1" id="h7q-2c-gjt"/>
+                    </constraints>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-4R-saj">
+                    <rect key="frame" x="825" y="720" width="77" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Training Set" id="6cm-do-BTg">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oKN-nW-ARS">
+                    <rect key="frame" x="828" y="304" width="72" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Testing Set" id="BaQ-6X-jcZ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="yhl-Uq-g6f">
+                    <rect key="frame" x="736" y="448" width="256" height="256"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="yhl-Uq-g6f" secondAttribute="height" multiplier="1:1" id="yN2-yT-LzJ"/>
+                    </constraints>
+                </customView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KdN-xv-66T">
+                    <rect key="frame" x="542" y="260" width="168" height="32"/>
+                    <buttonCell key="cell" type="push" title="Load Test Dataset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KDM-s1-Zeb">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
-                    <connections>
-                        <action selector="didTapResetNeuralNetwork:" target="-2" id="clh-Lc-4Zl"/>
-                    </connections>
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="yhl-Uq-g6f" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="0L7-5c-PZ7"/>
+                <constraint firstItem="SEC-4R-saj" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="1gd-vH-t4O"/>
+                <constraint firstItem="SEC-4R-saj" firstAttribute="centerX" secondItem="yhl-Uq-g6f" secondAttribute="centerX" id="1qe-P1-AjI"/>
                 <constraint firstItem="9NA-Fo-fqD" firstAttribute="width" secondItem="DaZ-jE-Ypn" secondAttribute="width" id="4rW-Xt-VPD"/>
-                <constraint firstItem="drB-zs-6wg" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="Drj-zP-9Yu"/>
-                <constraint firstItem="v6X-3L-xGW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="32" id="G1d-nt-EzF"/>
-                <constraint firstItem="v6X-3L-xGW" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="LSv-Ry-RAz"/>
-                <constraint firstItem="yhl-Uq-g6f" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="1:2" id="RpX-Ew-qRv"/>
-                <constraint firstItem="drB-zs-6wg" firstAttribute="top" secondItem="DaZ-jE-Ypn" secondAttribute="bottom" constant="32" id="Vef-9W-Df1"/>
+                <constraint firstItem="OBA-hC-YnL" firstAttribute="top" secondItem="oKN-nW-ARS" secondAttribute="bottom" constant="16" id="Bdb-mg-Y5C"/>
+                <constraint firstAttribute="bottom" secondItem="OBA-hC-YnL" secondAttribute="bottom" constant="32" id="CJX-4v-xIw"/>
+                <constraint firstItem="OBA-hC-YnL" firstAttribute="centerX" secondItem="yhl-Uq-g6f" secondAttribute="centerX" id="FcB-SR-xqe"/>
+                <constraint firstItem="yhl-Uq-g6f" firstAttribute="leading" secondItem="9NA-Fo-fqD" secondAttribute="trailing" constant="32" id="H9Z-s3-FaJ"/>
+                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="trailing" secondItem="9NA-Fo-fqD" secondAttribute="trailing" id="P0c-l8-Lo4"/>
+                <constraint firstItem="yhl-Uq-g6f" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="1:3" id="RpX-Ew-qRv"/>
                 <constraint firstAttribute="trailing" secondItem="yhl-Uq-g6f" secondAttribute="trailing" constant="32" id="Z4I-DS-A7J"/>
-                <constraint firstItem="9NA-Fo-fqD" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="gOF-xj-wOd"/>
-                <constraint firstItem="9NA-Fo-fqD" firstAttribute="top" secondItem="v6X-3L-xGW" secondAttribute="bottom" constant="32" id="qZM-0R-nIu"/>
-                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="width" secondItem="drB-zs-6wg" secondAttribute="width" id="rnh-Gc-bAH"/>
-                <constraint firstItem="DaZ-jE-Ypn" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="32" id="wFu-Pv-IIK"/>
+                <constraint firstItem="oKN-nW-ARS" firstAttribute="centerX" secondItem="OBA-hC-YnL" secondAttribute="centerX" id="akA-NL-sSx"/>
+                <constraint firstItem="KdN-xv-66T" firstAttribute="trailing" secondItem="DaZ-jE-Ypn" secondAttribute="trailing" id="drS-Fi-s6k"/>
+                <constraint firstItem="OBA-hC-YnL" firstAttribute="trailing" secondItem="yhl-Uq-g6f" secondAttribute="trailing" id="eGR-wV-09a"/>
+                <constraint firstItem="yhl-Uq-g6f" firstAttribute="top" secondItem="SEC-4R-saj" secondAttribute="bottom" constant="16" id="f5U-lZ-V2v"/>
+                <constraint firstItem="KdN-xv-66T" firstAttribute="top" secondItem="OBA-hC-YnL" secondAttribute="top" id="h4a-CB-s7b"/>
+                <constraint firstItem="KdN-xv-66T" firstAttribute="width" secondItem="DaZ-jE-Ypn" secondAttribute="width" id="iBT-wG-eLJ"/>
                 <constraint firstItem="DaZ-jE-Ypn" firstAttribute="top" secondItem="9NA-Fo-fqD" secondAttribute="bottom" constant="32" id="xNj-aE-ogn"/>
-                <constraint firstItem="v6X-3L-xGW" firstAttribute="width" secondItem="9NA-Fo-fqD" secondAttribute="width" id="yRR-HX-kuM"/>
+                <constraint firstItem="9NA-Fo-fqD" firstAttribute="top" secondItem="yhl-Uq-g6f" secondAttribute="top" id="xOr-9h-6bD"/>
             </constraints>
             <point key="canvasLocation" x="25" y="124"/>
         </customView>

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MatrixGenerator<T>: IteratorProtocol {
+struct MatrixIterator<T>: IteratorProtocol {
     var index: Int = 0
     var matrix: Matrix<T>
 

@@ -53,7 +53,7 @@ class NeuralNetwork: NeuralNetworkInput {
         // self.who += deltaW
         self.who = self.who + deltawho
 
-        let deltawih = try self.learningRate * (hiddenErrors*hiddenOutputs*(1.0-hiddenOutputs).dot(inMatrix.T))
+        let deltawih = try self.learningRate * ((hiddenErrors*hiddenOutputs*(1.0-hiddenOutputs)).dot(inMatrix.T))
         self.wih = self.wih + deltawih
     }
 

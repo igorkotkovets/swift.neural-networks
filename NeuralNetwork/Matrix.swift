@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 struct Matrix<Element> {
     enum Error: Swift.Error {
@@ -19,6 +20,7 @@ struct Matrix<Element> {
     var count: Int {
          return columns*rows
     }
+    let outputLog = OSLog(subsystem: "com.kotkovets.matrix", category: "matrix")
 
     init(rows: Int, columns: Int, defaultValue: Element) {
         self.rows = rows
@@ -61,8 +63,8 @@ struct Matrix<Element> {
 }
 
 extension Matrix: Sequence {
-    __consuming func makeIterator() -> MatrixGenerator<Element> {
-        return MatrixGenerator(matrix: self)
+    __consuming func makeIterator() -> MatrixIterator<Element> {
+        return MatrixIterator(matrix: self)
     }
 }
 
@@ -110,7 +112,6 @@ extension Matrix where Element == Double {
                 buffer[x] = Double.random(in: valuesInRange)
             }
             initializedCount = count
-            print("count: \(count) initializedCount \(initializedCount)")
         }
     }
 }
