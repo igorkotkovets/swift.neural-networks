@@ -116,9 +116,9 @@ extension Matrix where Element == Double {
 }
 
 extension Matrix where Element: SignedNumeric {
-    func mult(_ value: Element) -> Matrix {
-        let mult = array.map { $0*value }
-        return Matrix<Element>(rows: rows, columns: columns, array: mult)
+    static func * (lhs: Matrix, rhs: Element) -> Matrix {
+        let mult = lhs.array.map { $0*rhs }
+        return Matrix<Element>(rows: lhs.rows, columns: lhs.columns, array: mult)
     }
 
     func dot(_ rhs: Matrix<Element>) throws -> Matrix<Element> {
@@ -145,51 +145,51 @@ extension Matrix where Element: SignedNumeric {
     func apply(_ function: ((Matrix) -> Matrix)) -> Matrix {
         return function(self)
     }
-}
 
-prefix func - (matrix: Matrix<Double>) -> Matrix<Double> {
-    let sub = matrix.array.map { -$0 }
-    return Matrix(rows: matrix.rows, columns: matrix.columns, array: sub)
-}
+    static prefix func - (matrix: Matrix) -> Matrix {
+        let sub = matrix.array.map { -$0 }
+        return Matrix(rows: matrix.rows, columns: matrix.columns, array: sub)
+    }
 
-func - (lhs: Matrix<Double>, rhs: Matrix<Double>) -> Matrix<Double> {
-    let resArray = zip(lhs, rhs).map{ $0-$1 }
-    return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
-}
+    static func - (lhs: Matrix, rhs: Matrix) -> Matrix {
+        let resArray = zip(lhs, rhs).map{ $0-$1 }
+        return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
+    }
 
-func + (lhs: Double, rhs: Matrix<Double>) -> Matrix<Double> {
-    let result = rhs.array.map { lhs + $0}
-    return Matrix(rows: rhs.rows, columns: rhs.columns, array: result)
+    static func + (lhs: Element, rhs: Matrix) -> Matrix {
+        let result = rhs.array.map { lhs + $0}
+        return Matrix(rows: rhs.rows, columns: rhs.columns, array: result)
+    }
+
+    static func * (lhs: Element, rhs: Matrix) -> Matrix {
+        let result = rhs.array.map { lhs * $0 }
+        return Matrix(rows: rhs.rows, columns: rhs.columns, array: result)
+    }
+
+    static func - (lhs: Element, rhs: Matrix) -> Matrix {
+        let result = rhs.array.map { lhs - $0 }
+        return Matrix(rows: rhs.rows, columns: rhs.columns, array: result)
+    }
+
+    static func * (lhs: Matrix, rhs: Matrix) -> Matrix {
+        let resArray = zip(lhs, rhs).map{ $0*$1 }
+        return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
+    }
+
+    static func += (lhs: Matrix, rhs: Matrix) -> Matrix {
+        let resArray = zip(lhs, rhs).map{ $0+$1 }
+        return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
+    }
+
+    static func + (lhs: Matrix, rhs: Matrix) -> Matrix {
+        let resArray = zip(lhs, rhs).map{ $0+$1 }
+        return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
+    }
 }
 
 func / (lhs: Double, rhs: Matrix<Double>) -> Matrix<Double> {
     let result = rhs.array.map { lhs / $0 }
     return Matrix(rows: rhs.rows, columns: rhs.columns, array: result)
-}
-
-func * (lhs: Double, rhs: Matrix<Double>) -> Matrix<Double> {
-    let result = rhs.array.map { lhs * $0 }
-    return Matrix(rows: rhs.rows, columns: rhs.columns, array: result)
-}
-
-func - (lhs: Double, rhs: Matrix<Double>) -> Matrix<Double> {
-    let result = rhs.array.map { lhs - $0 }
-    return Matrix(rows: rhs.rows, columns: rhs.columns, array: result)
-}
-
-func * (lhs: Matrix<Double>, rhs: Matrix<Double>) -> Matrix<Double> {
-    let resArray = zip(lhs, rhs).map{ $0*$1 }
-    return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
-}
-
-func += (lhs: Matrix<Double>, rhs: Matrix<Double>) -> Matrix<Double> {
-    let resArray = zip(lhs, rhs).map{ $0+$1 }
-    return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
-}
-
-func + (lhs: Matrix<Double>, rhs: Matrix<Double>) -> Matrix<Double> {
-    let resArray = zip(lhs, rhs).map{ $0+$1 }
-    return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
 }
 
 func sigmoid(_ z: Matrix<Double>) -> Matrix<Double> {
