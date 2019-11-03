@@ -96,7 +96,7 @@ class MainViewController: NSViewController, MainViewInput {
                 return self.showPanelAndSelecFile()
         }
         viewModel.bindObservableToLoadTestFileAtURL(loadTestFileObservable, disposeBag: disposeBag)
-        viewModel.bindObservableToRecognizeCharacter(recognizeButton.rx.tap.asObservable(), disposeBag: disposeBag)
+        viewModel.bindNeuralNetworkToRecognizeCharacterFromTestDataset(disposeBag)
 
         viewModel.recognizedListObservable
             .map {

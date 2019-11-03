@@ -92,20 +92,17 @@ class MainViewModel {
             .subscribe().disposed(by: disposeBag)
     }
 
-    func bindObservableToRecognizeCharacter(_ observable: Observable<Void>, disposeBag: DisposeBag) {
-        observable
-            .flatMap { _ in
-                return self.testBitmapViewModel.characterObservable
-        }
-    .do(onNext: { [weak self] characterOrNil in
-        guard let character = characterOrNil,
-        let result = try? self?.neuralNetwork?.query(inputs: character.matrix.array) else {
-            return
-        }
+    func bindNeuralNetworkToRecognizeCharacterFromTestDataset(_ disposeBag: DisposeBag) {
+        self.testBitmapViewModel.characterObservable
+            .do(onNext: { [weak self] characterOrNil in
+                guard let character = characterOrNil,
+                    let result = try? self?.neuralNetwork?.query(inputs: character.matrix.array) else {
+                        return
+                }
 
-        self?.recognizeListValue.accept(result.array)
-    })
-    .subscribe().disposed(by: disposeBag)
+                self?.recognizeListValue.accept(result.array)
+            })
+            .subscribe().disposed(by: disposeBag)
 
 
     }
