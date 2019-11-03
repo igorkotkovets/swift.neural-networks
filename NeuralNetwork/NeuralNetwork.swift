@@ -10,7 +10,7 @@ import Foundation
 
 protocol NeuralNetworkInput {
     func train(inputs: [Double], targets: [Double]) throws
-    func query(inputs: Double...) throws -> Matrix<Double>
+    func query(inputs: [Double]) throws -> Matrix<Double>
 }
 
 class NeuralNetwork: NeuralNetworkInput {
@@ -48,16 +48,16 @@ class NeuralNetwork: NeuralNetworkInput {
         let outputErrors = targetsMatrix - finalOutputs
         // calc hiddent errors
         let hiddenErrors = try self.who.T.dot(outputErrors)
-        let deltawho = try self.learningRate * (outputErrors * finalOutputs * (1.0-finalOutputs)).dot(hiddenOutputs.T)
+        let deltawho = try self.learningRate * (outputErrors * finalOutputs * (1.0 - finalOutputs)).dot(hiddenOutputs.T)
         // updagte W between hidden and output layer
         // self.who += deltaW
         self.who = self.who + deltawho
 
-        let deltawih = try self.learningRate * ((hiddenErrors*hiddenOutputs*(1.0-hiddenOutputs)).dot(inMatrix.T))
+        let deltawih = try self.learningRate * (hiddenErrors * hiddenOutputs * (1.0 - hiddenOutputs)).dot(inMatrix.T)
         self.wih = self.wih + deltawih
     }
 
-    func query(inputs: Double...) throws -> Matrix<Double> {
+    func query(inputs: [Double]) throws -> Matrix<Double> {
         let inMatrix = Matrix.column(elements: inputs)
         // calc input signals for hidden layer
         let hiddenInputs = try self.wih.dot(inMatrix)

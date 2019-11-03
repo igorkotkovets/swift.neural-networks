@@ -188,6 +188,26 @@ extension Matrix where Element: SignedNumeric {
     }
 }
 
+extension Matrix: Equatable where Element: Equatable {
+    static func == (lhs: Matrix<Element>, rhs: Matrix<Element>) -> Bool {
+        guard lhs.rows == rhs.rows else {
+            return false
+        }
+
+        guard lhs.columns == rhs.columns else {
+            return false
+        }
+
+        guard lhs.array == rhs.array else {
+            return false
+        }
+
+        return true
+    }
+
+
+}
+
 func / (lhs: Double, rhs: Matrix<Double>) -> Matrix<Double> {
     let result = rhs.array.map { lhs / $0 }
     return Matrix(rows: rhs.rows, columns: rhs.columns, array: result)

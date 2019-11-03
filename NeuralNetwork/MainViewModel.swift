@@ -8,11 +8,12 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 
 class MainViewModel {
-    var testBitmapViewModel: BitmapViewModel?
-    var trainBitmapViewModel: BitmapViewModel?
+    var testBitmapViewModel: BitmapViewModel!
+    var trainBitmapViewModel: BitmapViewModel!
     private var neuralNetwork: NeuralNetworkInput?
     private var trainDataset = [CharacterMetadata]()
     private var testDataset = [CharacterMetadata]()
@@ -20,6 +21,8 @@ class MainViewModel {
     private let hiddenNodes = 100
     private let outputNodes = 10
     private let learningRate = 0.3
+    private var recognizeListValue = BehaviorRelay<[Double]>(value: [])
+    var recognizedListObservable: Observable<[Double]> { return recognizeListValue.asObservable() }
 
     init(trainViewModel: BitmapViewModel, testViewModel: BitmapViewModel) {
         self.trainBitmapViewModel = trainViewModel
@@ -62,7 +65,8 @@ class MainViewModel {
                 for character in self.trainDataset {
                     var targets = Array<Double>(repeating: 0.01, count: self.outputNodes);
                     targets[character.value] = 0.99
-                    try? self.neuralNetwork?.train(inputs: character.matrix.array, targets: targets)
+                    let inputs = character.matrix.array
+                    try? self.neuralNetwork?.train(inputs: inputs, targets: targets)
                 }
             })
             .subscribe().disposed(by: disposeBag)
@@ -86,5 +90,23 @@ class MainViewModel {
                 self.testBitmapViewModel?.acceptBitmaps(dataset)
             })
             .subscribe().disposed(by: disposeBag)
+    }
+
+    func bindObservableToRecognizeCharacter(_ observable: Observable<Void>, disposeBag: DisposeBag) {
+        observable
+            .flatMap { _ in
+                return self.testBitmapViewModel.characterObservable
+        }
+    .do(onNext: { [weak self] characterOrNil in
+        guard let character = characterOrNil,
+        let result = try? self?.neuralNetwork?.query(inputs: character.matrix.array) else {
+            return
+        }
+
+        self?.recognizeListValue.accept(result.array)
+    })
+    .subscribe().disposed(by: disposeBag)
+
+
     }
 }

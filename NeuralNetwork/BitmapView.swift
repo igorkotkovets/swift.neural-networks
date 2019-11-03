@@ -42,7 +42,7 @@ class BitmapView: NSView {
         self.viewModel = viewModel
         viewModel.bindObservableToNext(nextButton.rx.tap.asObservable(), disposeBag: disposeBag)
         viewModel.bindObservableToPrev(prevButton.rx.tap.asObservable(), disposeBag: disposeBag)
-        viewModel.bitmapMetadataObservable
+        viewModel.characterObservable
         .do(onNext: { [weak self] in
             if let matrix = $0?.matrix {
                 self?.drawMatrix(matrix)

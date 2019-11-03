@@ -28,4 +28,19 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(matrix[2,2], 1)
     }
 
+    func testTransposion() {
+        let matrix = Matrix(rows: 2, columns: 3, array: [0,1,2,3,4,5])
+        let transposed = matrix.T
+        XCTAssertEqual(0, transposed[0,0])
+        XCTAssertEqual(1, transposed[0,1])
+        XCTAssertEqual(2, transposed[1,0])
+        XCTAssertEqual(3, transposed[1,1])
+        XCTAssertEqual(4, transposed[2,0])
+        XCTAssertEqual(5, transposed[2,1])
+
+        let doubleTransposed = transposed.T
+        XCTAssertEqual(matrix, doubleTransposed)
+
+    }
+
 }

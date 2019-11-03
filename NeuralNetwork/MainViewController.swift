@@ -24,7 +24,8 @@ class MainViewController: NSViewController, MainViewInput {
     @IBOutlet private var trainNetworkButton: NSButton!
     @IBOutlet private var loadTestDatasetButton: NSButton!
     @IBOutlet private var loadTrainDatasetButton: NSButton!
-
+    @IBOutlet private var recognizeButton: NSButton!
+    @IBOutlet private var recognizedList: NSTextField!
     private let disposeBag = DisposeBag()
 
 
@@ -84,7 +85,6 @@ class MainViewController: NSViewController, MainViewInput {
         viewModel
             .bindObservableToTrainNeuralNetwork(trainNetworkButton.rx.tap.asObservable(),
                                                 disposeBag: disposeBag)
-
         let loadTrainFileObservable = loadTrainDatasetButton.rx.tap.asObservable()
             .flatMap {
                 return self.showPanelAndSelecFile()
@@ -96,16 +96,23 @@ class MainViewController: NSViewController, MainViewInput {
                 return self.showPanelAndSelecFile()
         }
         viewModel.bindObservableToLoadTestFileAtURL(loadTestFileObservable, disposeBag: disposeBag)
+        viewModel.bindObservableToRecognizeCharacter(recognizeButton.rx.tap.asObservable(), disposeBag: disposeBag)
+
+        viewModel.recognizedListObservable
+            .map {
+                var resultStr = ""
+                for (index, value) in $0.enumerated() {
+                    resultStr.append(String(format: "%d - %0.5f \n", index, value))
+                }
+                return resultStr
+        }
+        .bind(to: recognizedList.rx.text).disposed(by: disposeBag)
     }
 
     @IBAction func showBitmapView(_ sender: NSButton) {
         //        let array = Array(repeating: 3, count: 100)
         //        let matrix = Matrix(rows: 10, columns: 10, array: array);
         //        self.bitmapView?.drawMatrix(matrix)
-    }
-
-    @IBAction func didTapResetNeuralNetwork(_ sender: NSButton) {
-        
     }
 
     @IBAction func loadTrainingFile(_ sender: NSButton) {
