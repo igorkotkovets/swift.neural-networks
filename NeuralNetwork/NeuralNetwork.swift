@@ -27,8 +27,8 @@ class NeuralNetwork: NeuralNetworkInput {
         self.hiddenNodes = hiddenNodes
         self.outputNodes = outputNodes
         self.learningRate = learningRate
-        wih = Matrix(rows: hiddenNodes, columns: inputNodes, valuesInRange: -0.5...0.5)
-        who = Matrix(rows: outputNodes, columns: hiddenNodes, valuesInRange: -0.5...0.5)
+        self.wih = Matrix(rows: hiddenNodes, columns: inputNodes, valuesInRange: -0.5...0.5)
+        self.who = Matrix(rows: outputNodes, columns: hiddenNodes, valuesInRange: -0.5...0.5)
     }
 
     func train(inputs: [Double], targets: [Double]) throws {
@@ -46,14 +46,12 @@ class NeuralNetwork: NeuralNetworkInput {
 
         // calc error
         let outputErrors = targetsMatrix - finalOutputs
-        // calc hiddent errors
         let hiddenErrors = try self.who.T.dot(outputErrors)
-        let deltawho = try self.learningRate * (outputErrors * finalOutputs * (1.0 - finalOutputs)).dot(hiddenOutputs.T)
-        // updagte W between hidden and output layer
-        // self.who += deltaW
+
+        let deltawho = try self.learningRate * ((outputErrors * finalOutputs * (1.0 - finalOutputs)).dot(hiddenOutputs.T))
         self.who = self.who + deltawho
 
-        let deltawih = try self.learningRate * (hiddenErrors * hiddenOutputs * (1.0 - hiddenOutputs)).dot(inMatrix.T)
+        let deltawih = try self.learningRate * ((hiddenErrors * hiddenOutputs * (1.0 - hiddenOutputs)).dot(inMatrix.T))
         self.wih = self.wih + deltawih
     }
 

@@ -24,7 +24,6 @@ class MainViewController: NSViewController, MainViewInput {
     @IBOutlet private var trainNetworkButton: NSButton!
     @IBOutlet private var loadTestDatasetButton: NSButton!
     @IBOutlet private var loadTrainDatasetButton: NSButton!
-    @IBOutlet private var recognizeButton: NSButton!
     @IBOutlet private var recognizedList: NSTextField!
     private let disposeBag = DisposeBag()
 

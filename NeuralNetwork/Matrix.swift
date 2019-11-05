@@ -57,8 +57,20 @@ struct Matrix<Element> {
         }
     }
 
+    
+
     var T: Matrix<Element> {
-        return Matrix(rows: columns, columns: rows, array: array)
+        let tRows = columns
+        let tColumns = rows
+        var tArray = array
+        for ir in 0..<rows/2 {
+            for jc in 0..<columns/2 {
+                let tmp = array[ir*columns+jc]
+                tArray[ir*columns+jc] = tArray[jc*tColumns+ir]
+                tArray[jc*tColumns+ir] = tmp
+            }
+        }
+        return Matrix(rows: tRows, columns: tColumns, array: tArray)
     }
 }
 
