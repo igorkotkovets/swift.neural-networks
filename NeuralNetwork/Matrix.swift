@@ -60,17 +60,15 @@ struct Matrix<Element> {
     
 
     var T: Matrix<Element> {
-        let tRows = columns
-        let tColumns = rows
         var tArray = array
-        for ir in 0..<rows/2 {
-            for jc in 0..<columns/2 {
-                let tmp = array[ir*columns+jc]
-                tArray[ir*columns+jc] = tArray[jc*tColumns+ir]
-                tArray[jc*tColumns+ir] = tmp
+        var index = 0
+        for j in 0..<columns {
+            for i in 0..<rows {
+                tArray[index] = array[i*columns+j]
+                index += 1
             }
         }
-        return Matrix(rows: tRows, columns: tColumns, array: tArray)
+        return Matrix(rows: columns, columns: rows, array: tArray)
     }
 }
 

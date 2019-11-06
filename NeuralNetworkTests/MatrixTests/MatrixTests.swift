@@ -14,29 +14,20 @@ class MatrixTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
-    func testMatrixCreation3x3() {
-        let array = [1,0,0,0,1,0,0,0,1]
-        let matrix = Matrix(rows: 3, columns: 3, array: array)
-        XCTAssertEqual(matrix[0,0], 1)
-        XCTAssertEqual(matrix[0,1], 0)
-        XCTAssertEqual(matrix[0,2], 0)
-        XCTAssertEqual(matrix[1,0], 0)
-        XCTAssertEqual(matrix[1,1], 1)
-        XCTAssertEqual(matrix[1,2], 0)
-        XCTAssertEqual(matrix[2,0], 0)
-        XCTAssertEqual(matrix[2,1], 0)
-        XCTAssertEqual(matrix[2,2], 1)
+    func testHorizontalVectorTransposion() {
+        let matrix = Matrix(rows: 3, columns: 2, array: [1,2,3,4,5,6])
+        let matrix = Matrix(rows: 1, columns: 6, array: <#T##[_]#>)
     }
 
     func testTransposion() {
-        let matrix = Matrix(rows: 2, columns: 3, array: [0,1,2,3,4,5])
+        let matrix = Matrix(rows: 3, columns: 2, array: [1,2,3,4,5,6])
         let transposed = matrix.T
-        XCTAssertEqual(0, transposed[0,0])
-        XCTAssertEqual(1, transposed[0,1])
+        XCTAssertEqual(1, transposed[0,0])
+        XCTAssertEqual(3, transposed[0,1])
+        XCTAssertEqual(5, transposed[0,2])
         XCTAssertEqual(2, transposed[1,0])
-        XCTAssertEqual(3, transposed[1,1])
-        XCTAssertEqual(4, transposed[2,0])
-        XCTAssertEqual(5, transposed[2,1])
+        XCTAssertEqual(4, transposed[1,1])
+        XCTAssertEqual(6, transposed[1,2])
 
         let doubleTransposed = transposed.T
         XCTAssertEqual(matrix, doubleTransposed)
