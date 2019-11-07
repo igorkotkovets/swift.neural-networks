@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GameplayKit
 
 protocol NeuralNetworkInput {
     func train(inputs: [Double], targets: [Double]) throws
@@ -27,8 +28,19 @@ class NeuralNetwork: NeuralNetworkInput {
         self.hiddenNodes = hiddenNodes
         self.outputNodes = outputNodes
         self.learningRate = learningRate
-        self.wih = Matrix(rows: hiddenNodes, columns: inputNodes, valuesInRange: -0.5...0.5)
-        self.who = Matrix(rows: outputNodes, columns: hiddenNodes, valuesInRange: -0.5...0.5)
+
+        let random = GKRandomSource()
+        let ihDeviation = powf(Float(inputNodes), -0.5)
+        let ihDistribution = NormalDistribution(randomSource: random, mean: 0.5, deviation: ihDeviation)
+        let wihArray = (0..<hiddenNodes*inputNodes).map { _ in return ihDistribution.nextDouble()-0.5 }
+        self.wih = Matrix(rows: hiddenNodes, columns: inputNodes, array: wihArray)
+        print("self.wih = \(self.wih)")
+
+        let hoDeviation = powf(Float(inputNodes), -0.5)
+        let hoDistribution = NormalDistribution(randomSource: random, mean: 0.5, deviation: hoDeviation)
+        let wohArray = (0..<outputNodes*hiddenNodes).map { _ in return hoDistribution.nextDouble()-0.5 }
+        self.who = Matrix(rows: outputNodes, columns: hiddenNodes, array: wohArray)
+        print("self.who = \(self.who)")
     }
 
     func train(inputs: [Double], targets: [Double]) throws {

@@ -10,13 +10,18 @@ import XCTest
 
 class MatrixTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
     func testHorizontalVectorTransposion() {
-        let matrix = Matrix(rows: 3, columns: 2, array: [1,2,3,4,5,6])
-        let matrix = Matrix(rows: 1, columns: 6, array: <#T##[_]#>)
+        let matrix = Matrix(rows: 1, columns: 6, array: [1,2,3,4,5,6])
+        let transformed = matrix.T
+        XCTAssertEqual(1, transformed[0,0])
+        XCTAssertEqual(2, transformed[1,0])
+        XCTAssertEqual(3, transformed[2,0])
+        XCTAssertEqual(4, transformed[3,0])
+        XCTAssertEqual(5, transformed[4,0])
+        XCTAssertEqual(6, transformed[5,0])
+
+        let doubleTransposed = transformed.T
+        XCTAssertEqual(matrix, doubleTransposed)
     }
 
     func testTransposion() {
@@ -49,6 +54,22 @@ class MatrixTests: XCTestCase {
         XCTAssertEqual(2, transposed[2,0])
         XCTAssertEqual(5, transposed[2,1])
         XCTAssertEqual(8, transposed[2,2])
+    }
+
+    func testCreation() {
+        let whoValues = [-0.26168878, 0.20105044, -0.53555119,
+                         1.0886597, -0.24852995, -0.35216858,
+                         -0.20535956, 0.58141904, -0.66009959]
+        let who: Matrix<Double> = Matrix(rows: 3, columns: 3, array: whoValues)
+        XCTAssertEqual(-0.26168878, who[0,0], accuracy: 0.000001)
+        XCTAssertEqual(0.20105044, who[0,1], accuracy: 0.000001)
+        XCTAssertEqual(-0.53555119, who[0,2], accuracy: 0.000001)
+        XCTAssertEqual(1.0886597, who[1,0], accuracy: 0.000001)
+        XCTAssertEqual(-0.24852995, who[1,1], accuracy: 0.000001)
+        XCTAssertEqual(-0.35216858, who[1,2], accuracy: 0.000001)
+        XCTAssertEqual(-0.20535956, who[2,0], accuracy: 0.000001)
+        XCTAssertEqual(0.58141904, who[2,1], accuracy: 0.000001)
+        XCTAssertEqual(-0.66009959, who[2,2], accuracy: 0.000001)
     }
 
 }

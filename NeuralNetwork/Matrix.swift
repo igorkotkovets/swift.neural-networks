@@ -8,6 +8,7 @@
 
 import Foundation
 import os.log
+import GameplayKit
 
 struct Matrix<Element> {
     enum Error: Swift.Error {
@@ -57,8 +58,6 @@ struct Matrix<Element> {
         }
     }
 
-    
-
     var T: Matrix<Element> {
         var tArray = array
         var index = 0
@@ -104,6 +103,7 @@ extension Matrix where Element == Double {
         self.rows = rows
         self.columns = columns
         let count = rows*columns
+        
         self.array = Array<Element>(unsafeUninitializedCapacity: count) { buffer, initializedCount in
             for x in 0..<count {
                 buffer[x] = Double.random(in: random.0...random.1)
@@ -163,7 +163,7 @@ extension Matrix where Element: SignedNumeric {
     }
 
     static func - (lhs: Matrix, rhs: Matrix) -> Matrix {
-        let resArray = zip(lhs, rhs).map{ $0-$1 }
+        let resArray = zip(lhs.array, rhs.array).map{ $0-$1 }
         return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
     }
 
@@ -183,17 +183,12 @@ extension Matrix where Element: SignedNumeric {
     }
 
     static func * (lhs: Matrix, rhs: Matrix) -> Matrix {
-        let resArray = zip(lhs, rhs).map{ $0*$1 }
-        return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
-    }
-
-    static func += (lhs: Matrix, rhs: Matrix) -> Matrix {
-        let resArray = zip(lhs, rhs).map{ $0+$1 }
+        let resArray = zip(lhs.array, rhs.array).map { $0*$1 }
         return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
     }
 
     static func + (lhs: Matrix, rhs: Matrix) -> Matrix {
-        let resArray = zip(lhs, rhs).map{ $0+$1 }
+        let resArray = zip(lhs.array, rhs.array).map { $0 + $1 }
         return Matrix(rows: lhs.rows, columns: lhs.columns, array: resArray)
     }
 }
